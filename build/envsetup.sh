@@ -949,7 +949,7 @@ function build_kernel() {
 
         # Copy .repo/repo from Android tree to allow nested `repo init`
         mkdir -p "${KERNEL_BUILD_TOP}/.repo"
-        cp -R "${ANDROID_BUILD_TOP}/.repo/repo" "${KERNEL_BUILD_TOP}/.repo/repo"
+        command cp -R "${ANDROID_BUILD_TOP}/.repo/repo" "${KERNEL_BUILD_TOP}/.repo/repo"
 
         # Allow custom .repo/project-objects dir
         if [ -n "${KERNEL_REPO_PROJECT_OBJECTS_DIR}" ]; then
@@ -1018,7 +1018,7 @@ function build_kernel() {
 
     # Copy the new kernel prebuilts
     mkdir -p "${target_kernel_dir}"
-    cp -a "${KERNEL_BUILD_TOP}/out/${target_kernel_device}/dist/"* "${target_kernel_dir}/"
+    command cp -a "${KERNEL_BUILD_TOP}/out/${target_kernel_device}/dist/"* "${target_kernel_dir}/"
     chmod -x "${target_kernel_dir}/"*
     echo "Kernel build output copied to ${target_kernel_dir}/"
 }
