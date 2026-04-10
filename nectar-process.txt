@@ -1,0 +1,348 @@
+--------- beginning of main
+09-09 10:10:28.069 16366 16366 W zygote64: Activation of cgroup controller +memory failed in path /sys/fs/cgroup/apps/uid_10488: Invalid argument
+09-09 10:10:28.074 16366 16366 I Zygote  : Process 16366 created for com.ga.loyalty.android.nectar.activities
+09-09 10:10:28.074 16366 16366 I ctar.activities: Using CollectorTypeCMC GC.
+09-09 10:10:28.077 16366 16366 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+09-09 10:10:28.096 16366 16366 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/org.apache.http.legacy.jar
+09-09 10:10:28.096 16366 16366 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+09-09 10:10:28.096 16366 16366 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+09-09 10:10:28.101 16366 16366 W ctar.activities: Failed to find entry 'classes.dex': Entry not found
+09-09 10:10:28.102 16366 16366 W ctar.activities: Failed to find entry 'classes.dex': Entry not found
+09-09 10:10:28.102 16366 16366 W ctar.activities: Failed to find entry 'classes.dex': Entry not found
+09-09 10:10:28.102 16366 16366 D nativeloader: Configuring clns-9 for other apk /data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/base.apk:/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.arm64_v8a.apk:/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.en.apk:/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.xxhdpi.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/lib/arm64:/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/base.apk!/lib/arm64-v8a:/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.arm64_v8a.apk!/lib/arm64-v8a:/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android
+09-09 10:10:28.107 16366 16366 W GameProps: No gameprops config in Settings.Secure
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment: Currently set values for:
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[com.android.angle, com.google.android.apps.tachyon]
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment:   angle_gl_driver_selection_values=[angle, native]
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment: com.ga.loyalty.android.nectar.activities is not listed in per-application setting
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment: ANGLE allowlist from config: 
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment: No special selections for ANGLE, returning default driver choice
+09-09 10:10:28.111 16366 16366 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+09-09 10:10:28.118 16366 16366 D FirebaseSessions: Dependency to CRASHLYTICS added.
+09-09 10:10:28.120 16366 16366 I FirebaseApp: Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+09-09 10:10:28.128 16366 16366 D nativeloader: Load /data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.arm64_v8a.apk!/lib/arm64-v8a/libdatastore_shared_counter.so using class loader ns clns-9 (caller=/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/base.apk!classes2.dex): ok
+09-09 10:10:28.130 16366 16366 D FirebaseSessions: Initializing Firebase Sessions 3.0.6.
+09-09 10:10:28.130 16366 16366 I FirebaseCrashlytics: Initializing Firebase Crashlytics 20.0.6 for com.ga.loyalty.android.nectar.activities
+09-09 10:10:28.133 16366 16366 D FirebaseSessions: Subscriber CRASHLYTICS registered.
+09-09 10:10:28.134 16366 16386 W ctar.activities: ClassLoaderContext classpath size mismatch. expected=1, found=0 (DLC[];PCL[base.apk*3267616312]{PCL[/system/framework/org.apache.http.legacy.jar*1771602530]#PCL[/system/framework/com.android.location.provider.jar*3231839591]#PCL[/system/framework/com.android.media.remotedisplay.jar*3676824317]#PCL[/system_ext/framework/com.android.extensions.appfunctions.jar*2154005669]#PCL[/system_ext/framework/androidx.window.extensions.jar*198531697]#PCL[/system_ext/framework/androidx.window.sidecar.jar*3560387841]} | DLC[];PCL[])
+09-09 10:10:28.136 16366 16386 I DynamiteModule: Considering local module com.google.android.gms.measurement.dynamite:185 and remote module com.google.android.gms.measurement.dynamite:205
+09-09 10:10:28.136 16366 16386 I DynamiteModule: Selected remote version of com.google.android.gms.measurement.dynamite, version >= 205
+09-09 10:10:28.136 16366 16386 V DynamiteModule: Dynamite loader version >= 2, using loadModule2NoCrashUtils
+09-09 10:10:28.138 16366 16397 D FirebaseSessions: Notified CRASHLYTICS of new session c5fd88655ae440dd8f02a289e5bffec2
+09-09 10:10:28.140 16366 16386 W System  : ClassLoader referenced unknown path: 
+09-09 10:10:28.140 16366 16386 D nativeloader: Configuring clns-10 for other apk . target_sdk_version=37, uses_libraries=, library_path=/data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/lib/arm64:/data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.gms
+09-09 10:10:28.142 16366 16366 I FirebaseInitProvider: FirebaseApp initialization successful
+09-09 10:10:28.143 16366 16401 E ashmem  : Pinning is deprecated since Android Q. Please use trim or other methods.
+09-09 10:10:28.145 16366 16386 W ctar.activities: ClassLoaderContext classpath element checksum mismatch. expected=3267616312, found=3334204558 (DLC[];PCL[base.apk*3267616312]{PCL[/system/framework/org.apache.http.legacy.jar*1771602530]#PCL[/system/framework/com.android.location.provider.jar*3231839591]#PCL[/system/framework/com.android.media.remotedisplay.jar*3676824317]#PCL[/system_ext/framework/com.android.extensions.appfunctions.jar*2154005669]#PCL[/system_ext/framework/androidx.window.extensions.jar*198531697]#PCL[/system_ext/framework/androidx.window.sidecar.jar*3560387841]} | DLC[];PCL[/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/base.apk*3334204558]{PCL[/system/framework/org.apache.http.legacy.jar*1771602530]#PCL[/system_ext/framework/androidx.window.extensions.jar*198531697]#PCL[/system_ext/framework/androidx.window.sidecar.jar*3560387841]})
+09-09 10:10:28.147 16366 16386 D DesktopExperienceFlags: Toggle override initialized to: false
+09-09 10:10:28.148 16366 16389 I FirebaseCrashlytics: Saved version control info
+09-09 10:10:28.153 16366 16402 I Playtime: Please make sure, user id is not an empty string in Adjoe.Options.setUserId.
+09-09 10:10:28.157 16366 16366 I OTPublishersHeadlessSDK: Saved General Vendors : {}
+09-09 10:10:28.157 16366 16366 I OTUtils : OTT data parameterscdn-ukwest.onetrust.com5c4267b4-725b-4525-afab-d0f8585fc707,cdn-ukwest.onetrust.com5c4267b4-725b-4525-afab-d0f8585fc707
+09-09 10:10:28.157 16366 16366 I OTUtils : OTT data parameters not changed
+09-09 10:10:28.157 16366 16366 I OTUtils : syncWebSDKConsent Disabled.
+09-09 10:10:28.157 16366 16366 I OTUtils : saving OTSDK parameters to preferences
+09-09 10:10:28.158 16366 16366 I OneTrust: SDK rendering on mobile device
+09-09 10:10:28.158 16366 16366 D OT Build: getUCPurposeFlowEnabled: null
+09-09 10:10:28.158 16366 16411 D AdvertisingIdClient: Creating AdvertisingIdClient
+09-09 10:10:28.158 16366 16411 D AdvertisingIdClient: AdvertisingIdClient already created.
+09-09 10:10:28.159 16366 16366 I NWUtils : isConnected = true
+09-09 10:10:28.159 16366 16366 I OTPublishersHeadlessSDK: Starting OT SDK network call.
+09-09 10:10:28.160 16366 16411 D AdvertisingIdClient: AdvertisingIdClient is not bounded. Starting to bind it...
+09-09 10:10:28.161 16366 16403 I NetworkRequestHandler: SDK api version not overridden, using SDK version = 202602.1.2
+09-09 10:10:28.161 16366 16413 D CompatChangeReporter: Compat change id reported: 288912692; UID 10488; state: ENABLED
+09-09 10:10:28.162 16366 16403 I NetworkRequestHandler: OT Profile Sync params not set, sending syncProfile false.
+09-09 10:10:28.162 16366 16403 D OT Build: getUCPurposeFlowEnabled: null
+09-09 10:10:28.166 16366 16418 D AdvertisingIdClient: AdvertisingIdClient already created.
+09-09 10:10:28.178 16366 16408 I FA      : App measurement disabled by setAnalyticsCollectionEnabled(false)
+09-09 10:10:28.178 16366 16408 E ctar.activities: No package ID 6a found for resource ID 0x6a0b0013.
+09-09 10:10:28.178 16366 16408 I FA      : App measurement initialized, version: 181006
+09-09 10:10:28.178 16366 16408 I FA      : To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+09-09 10:10:28.178 16366 16408 I FA      : To enable faster debug mode event logging run:
+09-09 10:10:28.178 16366 16408 I FA      :   adb shell setprop debug.firebase.analytics.app com.ga.loyalty.android.nectar.activities
+09-09 10:10:28.223 16366 16411 D AdvertisingIdClient: AdvertisingIdClient is bounded
+--------- beginning of system
+09-09 10:10:28.227 16366 16455 I DisplayManager: Choreographer implicitly registered for the refresh rate.
+09-09 10:10:28.228 16366 16455 D vulkan  : searching for layers in '/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/lib/arm64'
+09-09 10:10:28.228 16366 16455 D vulkan  : searching for layers in '/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/base.apk!/lib/arm64-v8a'
+09-09 10:10:28.228 16366 16411 I AdvertisingIdClient: shouldSendLog -1
+09-09 10:10:28.228 16366 16455 D vulkan  : searching for layers in '/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.arm64_v8a.apk!/lib/arm64-v8a'
+09-09 10:10:28.228 16366 16455 D vulkan  : searching for layers in '/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.en.apk!/lib/arm64-v8a'
+09-09 10:10:28.228 16366 16455 D vulkan  : searching for layers in '/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/split_config.xxhdpi.apk!/lib/arm64-v8a'
+09-09 10:10:28.228 16366 16411 I AdvertisingIdClient: GetInfoInternal elapse 68ms
+09-09 10:10:28.230 16366 16411 I Adjoe   : Initializing SDK with PlaytimeOptions: PlaytimeOptions(userId=null, userProfile=null, params=null, extensions=null)
+09-09 10:10:28.232 16366 16418 I AdvertisingIdClient: shouldSendLog -1
+09-09 10:10:28.232 16366 16418 I AdvertisingIdClient: GetInfoInternal elapse 67ms
+09-09 10:10:28.234 16366 16408 I DynamiteModule: Considering local module com.google.android.gms.tagmanager:217 and remote module com.google.android.gms.tagmanager:218
+09-09 10:10:28.235 16366 16366 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+09-09 10:10:28.235 16366 16408 I DynamiteModule: Selected remote version of com.google.android.gms.tagmanager, version >= 218
+09-09 10:10:28.235 16366 16408 V DynamiteModule: Dynamite loader version >= 2, using loadModule2NoCrashUtils
+09-09 10:10:28.236 16366 16439 D WM-PackageManagerHelper: Skipping component enablement for androidx.work.impl.background.systemjob.SystemJobService
+09-09 10:10:28.236 16366 16439 D WM-Schedulers: Created SystemJobScheduler and enabled SystemJobService
+09-09 10:10:28.241 16366 16408 W ctar.activities: ClassLoaderContext classpath element checksum mismatch. expected=3267616312, found=3334204558 (DLC[];PCL[base.apk*3267616312]{PCL[/system/framework/org.apache.http.legacy.jar*1771602530]#PCL[/system/framework/com.android.location.provider.jar*3231839591]#PCL[/system/framework/com.android.media.remotedisplay.jar*3676824317]#PCL[/system_ext/framework/com.android.extensions.appfunctions.jar*2154005669]#PCL[/system_ext/framework/androidx.window.extensions.jar*198531697]#PCL[/system_ext/framework/androidx.window.sidecar.jar*3560387841]} | DLC[];PCL[/data/app/~~mMFDCDSpKgd6LVqWNwy67A==/com.ga.loyalty.android.nectar.activities-vjdrtkXK54hFFj-PbCgPIA==/base.apk*3334204558]{PCL[/system/framework/org.apache.http.legacy.jar*1771602530]#PCL[/system_ext/framework/androidx.window.extensions.jar*198531697]#PCL[/system_ext/framework/androidx.window.sidecar.jar*3560387841]})
+09-09 10:10:28.242 16366 16462 D WM-ForceStopRunnable: The default process name was not specified.
+09-09 10:10:28.242 16366 16462 D WM-ForceStopRunnable: Performing cleanup operations.
+09-09 10:10:28.244 16366 16366 D CompatChangeReporter: Compat change id reported: 377864165; UID 10488; state: ENABLED
+09-09 10:10:28.244 16366 16366 D DesktopModeFlags: Toggle override initialized to: OVERRIDE_UNSET
+09-09 10:10:28.245 16366 16411 W System  : Ignoring header Adjoe-SDKHash because its value was null.
+09-09 10:10:28.256 16366 16462 D WM-ForceStopRunnable: Application was force-stopped, rescheduling.
+09-09 10:10:28.270 16366 16366 D FirebaseSessions: App foregrounded on com.ga.loyalty.android.nectar.activities
+09-09 10:10:28.270 16366 16366 D FirebaseSessions: Process com.ga.loyalty.android.nectar.activities is stale
+09-09 10:10:28.272 16366 16390 D FirebaseSessions: Cold app start detected
+09-09 10:10:28.272 16366 16390 D FirebaseSessions: Process com.ga.loyalty.android.nectar.activities is stale
+09-09 10:10:28.282 16366 16408 I GoogleTagManager: Loading container GTM-KR49P5S
+09-09 10:10:28.289 16366 16370 I ctar.activities: Compiler allocated 4117KB to compile java.lang.Object com.newnectar.client.qm.h$a.get()
+09-09 10:10:28.294 16366 16408 I GoogleTagManager: Installing Tag Manager event handler.
+09-09 10:10:28.295 16366 16387 D FirebaseSessions: Notified CRASHLYTICS of new session bd0e3e4ae04f412da5a585147de0e03d
+09-09 10:10:28.303 16366 16408 I GoogleTagManager: Tag Manager event handler installed.
+09-09 10:10:28.303 16366 16408 I GoogleTagManager: Tag Manager initialization took 31ms
+09-09 10:10:28.312 16366 16411 W System  : Ignoring header Adjoe-SDKHash because its value was null.
+09-09 10:10:28.314 16366 16422 E adservices: Failed binding to measurement service: com.android.adservices.shared.common.exception.ServiceUnavailableException: Service is not available.
+09-09 10:10:28.321 16366 16397 D FirebaseSessions: Session Event Type: SESSION_START
+09-09 10:10:28.321 16366 16397 D FirebaseSessions: Successfully logged Session Start event.
+09-09 10:10:28.339 16366 16411 W System  : Ignoring header Adjoe-SDKHash because its value was null.
+09-09 10:10:28.340 16366 16474 D WM-PackageManagerHelper: Skipping component enablement for androidx.work.impl.background.systemalarm.RescheduleReceiver
+09-09 10:10:28.353 16366 16411 I Adjoe   : Initialization failed with backend exception. Status code: 702
+09-09 10:10:28.353 16366 16411 W System.err: io.adjoe.core.net.b1: statusCode:702, message: HTTP request failed
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.c1.a(SourceFile:12)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.r0.a(SourceFile:6)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.a1.a(SourceFile:800)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.newnectar.client.dq.a.a(R8$$SyntheticClass:3)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.a1.c(SourceFile:36)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.a1.b(SourceFile:16)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.a1.a(SourceFile:273)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.x4.invoke(SourceFile:348)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.executor.JoExecutorScope.b(SourceFile:6)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.newnectar.client.eq.g.run(R8$$SyntheticClass:18)
+09-09 10:10:28.353 16366 16411 W System.err: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+09-09 10:10:28.353 16366 16411 W System.err: 	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+09-09 10:10:28.353 16366 16411 W System.err: 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:348)
+09-09 10:10:28.353 16366 16411 W System.err: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+09-09 10:10:28.353 16366 16411 W System.err: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+09-09 10:10:28.353 16366 16411 W System.err: 	at java.lang.Thread.run(Thread.java:1563)
+09-09 10:10:28.353 16366 16411 W System.err: Caused by: java.net.ConnectException: Failed to connect to prod.adjoe.zone/127.0.0.1:443
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.io.RealConnection.connectSocket(RealConnection.java:147)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.io.RealConnection.connect(RealConnection.java:116)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.findConnection(StreamAllocation.java:186)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.findHealthyConnection(StreamAllocation.java:128)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.http.StreamAllocation.newStream(StreamAllocation.java:97)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:289)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:232)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:465)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.connect(HttpURLConnectionImpl.java:131)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getOutputStream(HttpURLConnectionImpl.java:262)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getOutputStream(DelegatingHttpsURLConnection.java:219)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:30)
+09-09 10:10:28.353 16366 16411 W System.err: 	at com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension.getOutputStream(HttpsURLConnectionExtension.java:9)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.o5.a(SourceFile:6)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.p.c(SourceFile:60)
+09-09 10:10:28.353 16366 16411 W System.err: 	at io.adjoe.core.net.a1.c(SourceFile:32)
+09-09 10:10:28.353 16366 16411 W System.err: 	... 11 more
+09-09 10:10:28.365 16366 16366 W JobInfo : Job 'com.ga.loyalty.android.nectar.activities/com.salesforce.marketingcloud.MCService#3000' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+09-09 10:10:28.371 16366 16542 W DynamiteModule: Local module descriptor class for com.google.android.gms.providerinstaller.dynamite not found.
+09-09 10:10:28.377 16366 16542 I DynamiteModule: Considering local module com.google.android.gms.providerinstaller.dynamite:0 and remote module com.google.android.gms.providerinstaller.dynamite:0
+09-09 10:10:28.377 16366 16542 W ProviderInstaller: Failed to load providerinstaller module: No acceptable module com.google.android.gms.providerinstaller.dynamite found. Local version is 0 and remote version is 0.
+09-09 10:10:28.380 16366 16542 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/org.apache.http.legacy.jar
+09-09 10:10:28.380 16366 16542 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/com.android.location.provider.jar
+09-09 10:10:28.380 16366 16542 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/com.android.media.remotedisplay.jar
+09-09 10:10:28.382 16366 16542 D nativeloader: Configuring clns-11 for other apk /system_ext/framework/com.android.extensions.appfunctions.jar. target_sdk_version=37, uses_libraries=ALL, library_path=/data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/lib/arm64:/data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.gms
+09-09 10:10:28.382 16366 16366 I AdvertisingIdClient: getting error as 17: API: ClientTelemetry.API is not available on this device. Connection failed with: b{statusCode=API_DISABLED_FOR_CONNECTION, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.382 16366 16366 I AdvertisingIdClient: getting error as 17: API: ClientTelemetry.API is not available on this device. Connection failed with: b{statusCode=API_DISABLED_FOR_CONNECTION, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.385 16366 16542 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+09-09 10:10:28.385 16366 16542 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+09-09 10:10:28.387 16366 16366 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@1d138a5
+09-09 10:10:28.392 16366 16542 D nativeloader: Configuring clns-12 for other apk /data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/base.apk. target_sdk_version=37, uses_libraries=, library_path=/data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/lib/arm64:/data/app/~~eTY4ZyVcR_8cTLBH25toZw==/com.google.android.gms-xwWeURcza1lKqnevK5WFfA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.gms
+09-09 10:10:28.396 16366 16366 D VRI[LaunchActivity]: WindowInsets changed: 1344x2992 statusBars:[0,151,0,0] navigationBars:[0,0,0,72] mandatorySystemGestures:[0,187,0,96] 
+09-09 10:10:28.412 16366 16366 I Adjoe   : Adjoe Service Connected
+09-09 10:10:28.425 16366 16542 I ProviderInstaller: Installed default security provider AndroidOpenSSL (via CompatProvider)
+09-09 10:10:28.427 16366 16366 I ImeTracker: com.ga.loyalty.android.nectar.activities:1842e70e: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: Failed to get service from broker. 
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: java.lang.SecurityException: Unknown calling package name 'com.google.android.gms'.
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3373)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Parcel.createException(Parcel.java:3357)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Parcel.readException(Parcel.java:3340)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Parcel.readException(Parcel.java:3282)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at bmrj.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):36)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at bmpc.y(:com.google.android.gms@263234035@26.32.34 (260400-968093310):143)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at bluz.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):42)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Handler.handleCallback(Handler.java:1070)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at dhsb.lJ(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at dhsb.dispatchMessage(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Looper.loopOnce(Looper.java:263)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.Looper.loop(Looper.java:367)
+09-09 10:10:28.443 16366 16558 E GoogleApiManager: 	at android.os.HandlerThread.run(HandlerThread.java:139)
+09-09 10:10:28.444 16366 16558 W GoogleApiManager: Not showing notification since connectionResult is not user-facing: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: Failed to register com.google.android.gms.providerinstaller#com.google.android.gms
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: gvvj: 17: 17: API: Phenotype.API is not available on this device. Connection failed with: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at gvvl.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):13)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwtd.d(:com.google.android.gms@263234035@26.32.34 (260400-968093310):3)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwtf.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):139)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwvq.execute(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwtn.f(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwtn.m(:com.google.android.gms@263234035@26.32.34 (260400-968093310):101)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwtn.q(:com.google.android.gms@263234035@26.32.34 (260400-968093310):16)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at gpej.jd(:com.google.android.gms@263234035@26.32.34 (260400-968093310):35)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at gbdp.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):12)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at hwvq.execute(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at gbdq.b(:com.google.android.gms@263234035@26.32.34 (260400-968093310):18)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at gbef.b(:com.google.android.gms@263234035@26.32.34 (260400-968093310):34)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at gbeh.c(:com.google.android.gms@263234035@26.32.34 (260400-968093310):23)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at blsh.e(:com.google.android.gms@263234035@26.32.34 (260400-968093310):9)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at blux.r(:com.google.android.gms@263234035@26.32.34 (260400-968093310):48)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at blux.d(:com.google.android.gms@263234035@26.32.34 (260400-968093310):10)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at blux.g(:com.google.android.gms@263234035@26.32.34 (260400-968093310):191)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at bluz.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):74)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at android.os.Handler.handleCallback(Handler.java:1070)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at dhsb.lJ(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at dhsb.dispatchMessage(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at android.os.Looper.loopOnce(Looper.java:263)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at android.os.Looper.loop(Looper.java:367)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at android.os.HandlerThread.run(HandlerThread.java:139)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: Caused by: blqm: 17: API: Phenotype.API is not available on this device. Connection failed with: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at bmoo.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):15)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at blsk.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	at blsh.e(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:28.446 16366 16550 W FlagRegistrar: 	... 12 more
+09-09 10:10:28.446 16366 16553 W FlagStore: Unable to update local snapshot for com.google.android.gms.providerinstaller#com.google.android.gms, may result in stale flags.
+09-09 10:10:28.446 16366 16553 W FlagStore: java.util.concurrent.ExecutionException: gvvj: 17: 17: API: Phenotype.API is not available on this device. Connection failed with: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtn.j(:com.google.android.gms@263234035@26.32.34 (260400-968093310):21)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtw.t(:com.google.android.gms@263234035@26.32.34 (260400-968093310):24)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtn.get(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwyf.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):2)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwwv.s(:com.google.android.gms@263234035@26.32.34 (260400-968093310):10)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gwar.d(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gvzv.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:348)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at java.lang.Thread.run(Thread.java:1563)
+09-09 10:10:28.446 16366 16553 W FlagStore: Caused by: gvvj: 17: 17: API: Phenotype.API is not available on this device. Connection failed with: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gvvl.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):13)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtd.d(:com.google.android.gms@263234035@26.32.34 (260400-968093310):3)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtf.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):139)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwvq.execute(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtn.f(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtn.m(:com.google.android.gms@263234035@26.32.34 (260400-968093310):101)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwtn.q(:com.google.android.gms@263234035@26.32.34 (260400-968093310):16)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gpej.jd(:com.google.android.gms@263234035@26.32.34 (260400-968093310):35)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbdp.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):12)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwvq.execute(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbdq.b(:com.google.android.gms@263234035@26.32.34 (260400-968093310):18)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbef.b(:com.google.android.gms@263234035@26.32.34 (260400-968093310):34)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbem.B(:com.google.android.gms@263234035@26.32.34 (260400-968093310):17)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbdh.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):60)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at hwvq.execute(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbdi.b(:com.google.android.gms@263234035@26.32.34 (260400-968093310):8)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbef.b(:com.google.android.gms@263234035@26.32.34 (260400-968093310):34)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at gbeh.c(:com.google.android.gms@263234035@26.32.34 (260400-968093310):23)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at blsh.e(:com.google.android.gms@263234035@26.32.34 (260400-968093310):9)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at blux.r(:com.google.android.gms@263234035@26.32.34 (260400-968093310):48)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at blux.d(:com.google.android.gms@263234035@26.32.34 (260400-968093310):10)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at blux.g(:com.google.android.gms@263234035@26.32.34 (260400-968093310):191)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at bluz.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):74)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at android.os.Handler.handleCallback(Handler.java:1070)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at dhsb.lJ(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at dhsb.dispatchMessage(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at android.os.Looper.loopOnce(Looper.java:263)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at android.os.Looper.loop(Looper.java:367)
+09-09 10:10:28.446 16366 16553 W FlagStore: 	at android.os.HandlerThread.run(HandlerThread.java:139)
+09-09 10:10:28.447 16366 16553 W FlagStore: Caused by: blqm: 17: API: Phenotype.API is not available on this device. Connection failed with: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.447 16366 16553 W FlagStore: 	at bmoo.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):15)
+09-09 10:10:28.447 16366 16553 W FlagStore: 	at blsk.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:28.447 16366 16553 W FlagStore: 	at blsh.e(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:28.447 16366 16553 W FlagStore: 	... 12 more
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: NetworkLoader: Error when loading resource from url: https://www.google-analytics.com/gtm/android?id=GTM-KR49P5S&pv=-1&rv=5.0 Failed to connect to www.google-analytics.com/127.0.0.1:443
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: java.net.ConnectException: Failed to connect to www.google-analytics.com/127.0.0.1:443
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.io.RealConnection.connectSocket(RealConnection.java:147)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.io.RealConnection.connect(RealConnection.java:116)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.http.StreamAllocation.findConnection(StreamAllocation.java:186)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.http.StreamAllocation.findHealthyConnection(StreamAllocation.java:128)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.http.StreamAllocation.newStream(StreamAllocation.java:97)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:289)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:232)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:465)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:411)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getResponseCode(HttpURLConnectionImpl.java:542)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getResponseCode(DelegatingHttpsURLConnection.java:106)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:30)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at m4.ayt.run(:com.google.android.gms.dynamite_dynamitemodulesc@263234035@26.32.34 (260400-0):216)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:348)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+09-09 10:10:28.461 16366 16557 E GoogleTagManager: 	at java.lang.Thread.run(Thread.java:1563)
+09-09 10:10:28.462 16366 16572 E GoogleTagManager: Saved resource not found: resource_GTM-KR49P5S
+09-09 10:10:28.479 16366 16575 I AdvertisingIdClient: shouldSendLog -1
+09-09 10:10:28.480 16366 16575 I AdvertisingIdClient: GetInfoInternal elapse 3ms
+09-09 10:10:28.480 16366 16575 I GoogleTagManager: Obtained fresh AdvertisingId info from GmsCore.
+09-09 10:10:28.487 16366 16366 I AdvertisingIdClient: getting error as 17: API: ClientTelemetry.API is not available on this device. Connection failed with: xz{statusCode=API_DISABLED_FOR_CONNECTION, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.493 16366 16370 W ctar.activities: Missing inline cache for void m4.ark.d(m4.aql)
+09-09 10:10:28.593 16366 16403 I NetworkRequestHandler: Requesting OTT data from : https://mobile-data.onetrust.io/cfw/cmp/v1/banner
+09-09 10:10:28.593 16366 16403 I NetworkRequestHandler: Banner response code = 200
+09-09 10:10:28.595 16366 16403 I OneTrust: Geolocation - country: GB , region: ENG
+09-09 10:10:28.597 16366 16403 I OTConsentChanges: Sending 1 broadcast, value = 1
+09-09 10:10:28.598 16366 16403 I OTConsentChanges: Sending 2 broadcast, value = 0
+09-09 10:10:28.599 16366 16403 I OTConsentChanges: Sending 3 broadcast, value = 0
+09-09 10:10:28.600 16366 16403 I OTConsentChanges: Sending 4 broadcast, value = 0
+09-09 10:10:28.602 16366 16403 I OTConsentChanges: Sending bfbfcd21-fedb-4485-a996-e687228d8caa broadcast, value = 0
+09-09 10:10:28.602 16366 16403 I OTConsentChanges: Sending 4d19438d-d49f-4869-bdde-4ab7c6fede1f broadcast, value = 0
+09-09 10:10:28.603 16366 16403 I OTConsentChanges: Sending 7ad3e66b-f590-44e7-be3b-cdb1d1c07901 broadcast, value = 0
+09-09 10:10:28.603 16366 16403 I OTConsentChanges: Sending 0ff77278-3b49-4e96-a7e4-19e26cfe23b5 broadcast, value = 1
+09-09 10:10:28.604 16366 16403 I OTConsentChanges: Sending d792e05c-c23d-4006-aee9-02dc0e9ef946 broadcast, value = 1
+09-09 10:10:28.604 16366 16403 I OTConsentChanges: Sending 1572c7c7-e4cb-4219-a83a-8f36fe2de7f8 broadcast, value = 1
+09-09 10:10:28.605 16366 16403 I OTConsentChanges: Sending 6fbbff96-26a9-4e0a-9ea5-964a02eeddf1 broadcast, value = 1
+09-09 10:10:28.605 16366 16403 I OTConsentChanges: Sending 8e54d0f8-47fd-4399-8d98-fda69f7cfb5e broadcast, value = 1
+09-09 10:10:28.606 16366 16403 I OTConsentChanges: Sending 04b8ab5b-0be8-44b5-a6c0-35d1a98f28d3 broadcast, value = 1
+09-09 10:10:28.606 16366 16403 I OTConsentChanges: Sending 9e4959b9-9619-4d04-b96b-5616801466e6 broadcast, value = 1
+09-09 10:10:28.607 16366 16403 I OTConsentChanges: Sending fffb3c57-25d6-423a-8b2a-e45cb3347069 broadcast, value = 1
+09-09 10:10:28.608 16366 16403 I OTConsentChanges: Sending ad89bf15-163b-443b-8098-a4418c206a2c broadcast, value = 1
+09-09 10:10:28.608 16366 16403 I OTConsentChanges: Sending 4aab0508-837f-4970-9ded-b82ebac0979f broadcast, value = 1
+09-09 10:10:28.609 16366 16403 I OTConsentChanges: Sending cd60950b-2520-4356-9f56-85b334d8de8a broadcast, value = 1
+09-09 10:10:28.609 16366 16403 I OTConsentChanges: Sending 81aa48f3-32dd-4348-ab6c-4d7048f6a3d3 broadcast, value = 1
+09-09 10:10:28.610 16366 16403 I OTConsentChanges: Sending c82ce8bd-7ddb-4f05-bfda-f9cc1a8c0d29 broadcast, value = 1
+09-09 10:10:28.610 16366 16403 I OTConsentChanges: Sending 2e49511b-3a38-4b6c-89df-4426883a0970 broadcast, value = 1
+09-09 10:10:28.611 16366 16403 I OTConsentChanges: Sending bf1c92b7-b81d-4988-8b82-7182b6b0bd1a broadcast, value = 0
+09-09 10:10:28.612 16366 16403 I GLDataHandler: No geolocation change detected. PC/Vendor data preserved.
+09-09 10:10:28.612 16366 16403 I OTCMP   : Banner data fetch api success :  Response{protocol=h2, code=200, message=, url=https://mobile-data.onetrust.io/cfw/cmp/v1/banner}
+09-09 10:10:28.793 16366 16582 I HWUI    : Using FreeType backend (prop=Auto)
+09-09 10:10:29.766 16366 16366 I PlayCore: UID: [10488]  PID: [16366] AppUpdateService : requestUpdateInfo(com.ga.loyalty.android.nectar.activities)
+09-09 10:10:29.773 16366 16602 I PlayCore: UID: [10488]  PID: [16366] AppUpdateService : Initiate binding to the service.
+09-09 10:10:29.785 16366 16366 I PlayCore: UID: [10488]  PID: [16366] AppUpdateService : ServiceConnectionImpl.onServiceConnected(ComponentInfo{com.android.vending/com.google.android.finsky.installservice.DevTriggeredUpdateService})
+09-09 10:10:29.787 16366 16602 I PlayCore: UID: [10488]  PID: [16366] AppUpdateService : linkToDeath
+09-09 10:10:29.814 16366 16376 I PlayCore: UID: [10488]  PID: [16366] OnRequestInstallCallback : onRequestInfo
+09-09 10:10:29.817 16366 16602 I PlayCore: UID: [10488]  PID: [16366] AppUpdateService : Unbind from service.
+09-09 10:10:33.357 16366 16635 D ProfileInstaller: Skipping profile installation for com.ga.loyalty.android.nectar.activities
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: Failed to get service from broker. 
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: java.lang.SecurityException: Unknown calling package name 'com.google.android.gms'.
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3373)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Parcel.createException(Parcel.java:3357)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Parcel.readException(Parcel.java:3340)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Parcel.readException(Parcel.java:3282)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at bmrj.a(:com.google.android.gms@263234035@26.32.34 (260400-968093310):36)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at bmpc.y(:com.google.android.gms@263234035@26.32.34 (260400-968093310):143)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at bluz.run(:com.google.android.gms@263234035@26.32.34 (260400-968093310):42)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Handler.handleCallback(Handler.java:1070)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at dhsb.lJ(:com.google.android.gms@263234035@26.32.34 (260400-968093310):1)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at dhsb.dispatchMessage(:com.google.android.gms@263234035@26.32.34 (260400-968093310):5)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Looper.loopOnce(Looper.java:263)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.Looper.loop(Looper.java:367)
+09-09 10:10:38.432 16366 16558 E GoogleApiManager: 	at android.os.HandlerThread.run(HandlerThread.java:139)
+09-09 10:10:38.432 16366 16558 W GoogleApiManager: Not showing notification since connectionResult is not user-facing: ConnectionResult{statusCode=DEVELOPER_ERROR, resolution=null, message=null, clientMethodKey=null}
+09-09 10:10:38.502 16366 16371 W ctar.activities: userfaultfd: MOVE ioctl seems unsupported: Connection timed out
