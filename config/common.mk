@@ -2,6 +2,7 @@
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product-if-exists, vendor/lineage/config/crdroid.mk)
 $(call inherit-product-if-exists, vendor/addons/config.mk)
+$(call inherit-product, vendor/lineage/config/extras.mk)
 $(call inherit-product, vendor/lineage/config/pixel.mk)
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += system/lib64/libtensorflowlite_jni.so
