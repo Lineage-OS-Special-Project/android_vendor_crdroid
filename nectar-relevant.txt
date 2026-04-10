@@ -1,0 +1,135 @@
+09-09 08:31:47.575  1705  2115 I am_kill : [0,8881,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:2,0,isolated not needed,0]
+09-09 08:31:47.596  1705  2115 I am_proc_died: [0,8881,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:2,0,10]
+09-09 08:31:56.572  4603  4603 I auditd  : type=1400 audit(0.0:192): avc:  denied  { read } for  comm="binder:4603_7" name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=76 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+09-09 08:34:43.855  1705  1854 I am_proc_start: [0,9115,10441,org.zwanoo.android.speedtest,broadcast,{org.zwanoo.android.speedtest/com.google.firebase.iid.FirebaseInstanceIdReceiver}]
+09-09 08:36:42.938  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:36:52.143  1705  2096 I am_unfreeze: [7538,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,3]
+09-09 08:36:54.925  1705  2109 I input_focus: [Focus leaving a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=Waiting for window because NOT_FOCUSABLE]
+09-09 08:37:07.515  1705  1841 I input_focus: [Focus request a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=UpdateInputWindows]
+09-09 08:37:07.531  1705  2109 I input_focus: [Focus entering a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=setFocusedWindow]
+09-09 08:37:09.805  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:37:09.811  1705  1810 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:37:09.812  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#148-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:37:09.813  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:37:36.905  1705  2096 I am_freeze: [7538,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0]
+09-09 08:37:38.667  1705  2096 I am_compact: [7538,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,ANON,112280,54412,54100,2660,-3732,0,-3716,3692,135,FULL,250788,905,19,542880,-1032]
+09-09 08:38:26.896  1705  2096 I am_unfreeze: [7538,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,6]
+09-09 08:38:38.217  1705  2096 I am_freeze: [7538,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0]
+09-09 08:39:20.716  4603  4603 I auditd  : type=1400 audit(0.0:193): avc:  denied  { read } for  comm="binder:4603_8" name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=76 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+09-09 08:39:59.990  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:39:59.998  1705  2283 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:39:59.999  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:00.000  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#148-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:03.197  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:08.327  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] clipboard overlay,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:08.386  7525  7525 I wm_on_top_resumed_lost_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,topStateChangedWhenResumed]
+09-09 08:40:08.408  1705  2733 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=input channel stole pointer stream]
+09-09 08:40:08.409  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:08.466  1705  2109 I input_focus: [Focus leaving a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=setFocusedWindow]
+09-09 08:40:10.669  1705  2733 I wm_add_to_stopping: [0,226365999,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,makeInvisible]
+09-09 08:40:10.670  1705  2733 I wm_pause_activity: [0,226365999,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,userLeaving=true,finishTransition]
+09-09 08:40:10.739  7525  7525 I wm_on_paused_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,performPause,60]
+09-09 08:40:10.751  1705  1840 I wm_stop_activity: [0,226365999,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:10.955  7525  7525 I wm_on_stop_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,STOP_ACTIVITY_ITEM,117]
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:194): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:195): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:196): avc:  denied  { getattr } for  comm="mount" path="/mnt/vm" dev="tmpfs" ino=1 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:vm_data_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:197): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:198): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:199): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:200): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:14.760  9668  9668 I auditd  : type=1400 audit(0.0:201): avc:  denied  { search } for  comm="mount" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c217,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.zoho.mail
+09-09 08:40:17.925  1705  1854 I am_proc_start: [0,9691,99001,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,,{com.zoho.mail/org.chromium.content.app.SandboxedProcessService0:0}]
+09-09 08:40:17.945  1705  1851 I am_proc_bound: [0,9691,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0]
+09-09 08:40:17.975   515   515 I auditd  : avc:  denied  { find } for pid=9691 uid=99001 name=content_capture scontext=u:r:isolated_app:s0:c512,c768 tcontext=u:object_r:content_capture_service:s0 tclass=service_manager permissive=0
+09-09 08:40:18.475  1705  2096 I am_freeze: [6615,com.ga.loyalty.android.nectar.activities]
+09-09 08:40:18.757  1705  2096 I am_compact: [6615,com.ga.loyalty.android.nectar.activities,ANON,185100,108528,71960,1780,-40904,-9060,-31828,31780,281,FULL,246064,965,19,535580,-496]
+09-09 08:40:20.437  1705  2096 I am_unfreeze: [7701,com.google.android.webview:webview_service,6]
+09-09 08:40:25.297  1705  1851 I wm_set_resumed_activity: [0,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,resumeTopActivity - onActivityStateChanged]
+09-09 08:40:25.299  1705  1851 I wm_resume_activity: [0,226365999,619,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:25.304  7525  7525 I wm_on_restart_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,performRestart,0]
+09-09 08:40:25.350  7525  7525 I wm_on_start_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,handleStartActivity,46]
+09-09 08:40:25.377  7525  7525 I wm_on_resume_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,RESUME_ACTIVITY,26]
+09-09 08:40:25.379  7525  7525 I wm_on_top_resumed_gained_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,topWhenResuming]
+09-09 08:40:25.391  1705  1841 I input_focus: [Focus request a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=UpdateInputWindows]
+09-09 08:40:25.456  1705  1837 I sysui_multi_action: [319,39,321,26,322,179,325,1182,757,761,758,9,759,4,806,com.android.chrome,871,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,904,com.android.chrome,905,0,1320,8,1321,5]
+09-09 08:40:25.476  1705  2109 I input_focus: [Focus entering a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=Window became focusable. Previous reason: NOT_VISIBLE]
+09-09 08:40:25.676  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:25.678  1705  2279 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:25.679  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:25.684  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:26.669  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:26.675  1705  2279 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:26.678  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:26.691  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:28.107  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:28.113  1705  3903 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:28.116  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:28.116  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:30.517  1705  2096 I am_freeze: [7701,com.google.android.webview:webview_service]
+09-09 08:40:30.700  1705  2096 I am_compact: [7701,com.google.android.webview:webview_service,ANON,116784,58644,54352,1804,-4564,0,-4548,4492,178,FULL,253557,905,19,545716,-976]
+09-09 08:40:31.879  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:31.888  1705  2279 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:31.890  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:31.892  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:45.747  1705  1841 I input_focus: [Focus request 83528cc com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=UpdateInputWindows]
+09-09 08:40:45.763  1705  2109 I input_focus: [Focus leaving a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=Waiting for window because NO_WINDOW]
+09-09 08:40:45.797  1705  2109 I input_focus: [Focus entering 83528cc com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=Window became focusable. Previous reason: NOT_VISIBLE]
+09-09 08:40:51.541  1705  2109 I input_interaction: Interaction with: [83528cc com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:51.682  1705  1841 I input_focus: [Focus request a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=UpdateInputWindows]
+09-09 08:40:51.700  1705  2109 I input_focus: [Focus entering a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=setFocusedWindow]
+09-09 08:40:53.935  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:53.945  1705  2283 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:53.949  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:53.955  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:56.084  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:56.089  1705  3903 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:56.090  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:56.091  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:40:56.994  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:40:57.003  1705  3903 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=transferring touch from this window to another window]
+09-09 08:40:57.004  1705  2109 I input_interaction: Interaction with: [PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe,Embedded{ChromeInputSurfaceControl#269-com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity}], on displayId 0
+09-09 08:40:57.005  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:41:05.349  1705  1852 I am_pss  : [8043,90001,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:1,0,0,0,1992769536,2,3,3]
+09-09 08:41:05.361  1705  1852 I am_pss  : [9691,99001,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,0,0,0,196169728,2,15,3]
+09-09 08:41:05.364  1705  1852 I am_pss  : [8900,90003,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:3,0,0,0,352112640,2,8,3]
+09-09 08:41:05.370  1705  1852 I am_pss  : [7816,10487,org.chromium.webapk.aba9fb703d520747e_v2,0,0,0,185704448,2,3,6]
+09-09 08:41:05.414  1705  1852 I am_pss  : [7701,10366,com.google.android.webview:webview_service,0,0,0,114913280,2,19,3]
+09-09 08:41:05.444  1705  1852 I am_pss  : [7538,99000,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,0,0,0,112214016,2,19,2]
+09-09 08:41:05.557  1705  1852 I am_pss  : [6615,10488,com.ga.loyalty.android.nectar.activities,0,0,0,147656704,2,19,3]
+09-09 08:41:15.764  1705  2109 I input_interaction: Interaction with: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,PointerEventDispatcher0,[Gesture Monitor] swipe-up,[Gesture Monitor] edge-swipe], on displayId 0
+09-09 08:41:15.810  7525  7525 I wm_on_top_resumed_lost_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,topStateChangedWhenResumed]
+09-09 08:41:15.853  1705  3903 I input_cancel: [a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=input channel stole pointer stream]
+09-09 08:41:15.853  7525  7525 I view_enqueue_input_event: [Motion - Cancel,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:41:15.882  1705  2109 I input_focus: [Focus leaving a3fbbc9 com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,reason=setFocusedWindow]
+09-09 08:41:17.045  1705  1809 I wm_pause_activity: [0,226365999,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,userLeaving=true,pauseBackTasks]
+09-09 08:41:17.070  7525  7525 I wm_on_paused_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,performPause,17]
+09-09 08:41:17.076  1705  2283 I wm_add_to_stopping: [0,226365999,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,makeInvisible]
+09-09 08:41:17.302  1705  1840 I wm_stop_activity: [0,226365999,com.android.chrome/org.chromium.chrome.browser.webapps.SameTaskWebApkActivity]
+09-09 08:41:17.408  7525  7525 I wm_on_stop_called: [226365999,org.chromium.chrome.browser.webapps.SameTaskWebApkActivity,STOP_ACTIVITY_ITEM,27]
+09-09 08:42:17.549  1705  1852 I am_pss  : [8043,90001,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:1,0,0,0,1472036864,0,15,152]
+09-09 08:42:17.572  1705  1852 I am_pss  : [8900,90003,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:3,0,0,0,352550912,0,15,23]
+09-09 08:42:17.596  1705  1852 I am_pss  : [7816,10487,org.chromium.webapk.aba9fb703d520747e_v2,0,0,0,166244352,0,15,24]
+09-09 08:42:21.934  1705  1852 I am_pss  : [9691,99001,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,0,0,0,220295168,0,3,24]
+09-09 08:42:27.352  1705  2096 I am_freeze: [8043,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:1]
+09-09 08:42:27.354  1705  2096 I am_freeze: [8900,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:3]
+09-09 08:42:27.356  1705  2096 I am_freeze: [7816,org.chromium.webapk.aba9fb703d520747e_v2]
+09-09 08:42:35.252 10114 10114 I auditd  : type=1400 audit(0.0:602): avc:  denied  { search } for  comm="toybox" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:42:35.252 10114 10114 I auditd  : type=1400 audit(0.0:603): avc:  denied  { search } for  comm="toybox" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:42:35.252 10114 10114 I auditd  : type=1400 audit(0.0:604): avc:  denied  { getattr } for  comm="toybox" path="/mnt/vm" dev="tmpfs" ino=1 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:vm_data_file:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:42:35.252 10114 10114 I auditd  : type=1400 audit(0.0:605): avc:  denied  { search } for  comm="toybox" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:42:35.252 10114 10114 I auditd  : type=1400 audit(0.0:606): avc:  denied  { search } for  comm="toybox" name="vendor" dev="tmpfs" ino=2 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:mnt_vendor_file:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:42:36.972 10111 10111 I auditd  : type=1400 audit(0.0:1028): avc:  denied  { read } for  comm="sh" name="/" dev="dm-0" ino=2 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:rootfs:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:42:39.328  1705  2096 I am_compact: [8043,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:1,ANON,1381436,166960,1209164,1888,-1134864,-684,-1133484,1133472,10087,FULL,260019,910,17,676968,-361256]
+09-09 08:42:40.616  1705  2096 I am_compact: [8900,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:3,ANON,342724,139888,197240,1896,-144172,-816,-142956,142916,1287,FULL,664429,920,17,1038224,-41292]
+09-09 08:42:40.921  1705  2096 I am_compact: [7816,org.chromium.webapk.aba9fb703d520747e_v2,ANON,162348,89088,69364,1720,-20424,0,-20408,20408,303,FULL,257759,930,16,1079516,-2116]
+09-09 08:42:44.943  1705  1852 I am_pss  : [8043,90001,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:1,0,0,0,252489728,0,17,4]
+09-09 08:42:44.948  1705  1852 I am_pss  : [8900,90003,com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:3,0,0,0,203317248,0,17,4]
+09-09 08:42:44.952  1705  1852 I am_pss  : [7816,10487,org.chromium.webapk.aba9fb703d520747e_v2,0,0,0,145330176,0,16,4]
+09-09 08:43:10.356 10175 10175 I auditd  : type=1400 audit(0.0:1029): avc:  denied  { read } for  comm="sh" name="/" dev="dm-0" ino=2 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:rootfs:s0 tclass=dir permissive=0 app=com.speedsoftware.rootexplorer
+09-09 08:43:12.159  1705  1852 I am_pss  : [9691,99001,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,0,0,0,221097984,0,15,2]
+09-09 08:43:17.759   515   515 I auditd  : avc:  denied  { find } for pid=10252 uid=99002 name=content_capture scontext=u:r:isolated_app:s0:c512,c768 tcontext=u:object_r:content_capture_service:s0 tclass=service_manager permissive=0
+09-09 08:43:21.763   515   515 I auditd  : avc:  denied  { find } for pid=10308 uid=99003 name=content_capture scontext=u:r:isolated_app:s0:c512,c768 tcontext=u:object_r:content_capture_service:s0 tclass=service_manager permissive=0
+09-09 08:43:32.298  1705  1852 I am_pss  : [9691,99001,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0,0,0,0,211537920,0,15,1]
+09-09 08:43:39.995  1705  2096 I am_freeze: [9691,com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0]
+09-09 08:43:45.605   515   515 I auditd  : avc:  denied  { find } for pid=10455 uid=99004 name=content_capture scontext=u:r:isolated_app:s0:c512,c768 tcontext=u:object_r:content_capture_service:s0 tclass=service_manager permissive=0
