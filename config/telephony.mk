@@ -11,16 +11,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     apns-conf.xml
 
-# Telephony packages
-PRODUCT_PACKAGES += \
-    messaging \
-    Stk
+# STK
+PRODUCT_PACKAGES += Stk
 
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
 PRODUCT_PRODUCT_PROPERTIES += \
     net.tethering.noprovisioning=true
 
-# Disable mobile data by default
+# Enable mobile data by default
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.android.mobiledata=false
+    ro.com.android.mobiledata=true
