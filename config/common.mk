@@ -4,6 +4,8 @@ $(call inherit-product-if-exists, vendor/lineage/config/crdroid.mk)
 $(call inherit-product-if-exists, vendor/addons/config.mk)
 $(call inherit-product, vendor/lineage/config/pixel.mk)
 
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += system/lib64/libtensorflowlite_jni.so
+
 # Exclude repos from bp scanning
 PRODUCT_SOURCE_ROOT_DIRS += -kernel/platform
 PRODUCT_SOURCE_ROOT_DIRS += -prebuilts/misc/protobuf_vendorcompat
