@@ -1,11 +1,22 @@
+# -----------------------------------------------------------------------------
+# Product inheritance
+# -----------------------------------------------------------------------------
+
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
-$(call inherit-product-if-exists, vendor/lineage/config/crdroid.mk)
+$(call inherit-product-if-exists, vendor/lineage/config/losp.mk)
 $(call inherit-product-if-exists, vendor/addons/config.mk)
+
 $(call inherit-product, vendor/lineage/config/extras.mk)
 $(call inherit-product, vendor/lineage/config/pixel.mk)
+$(call inherit-product, vendor/lineage/audio/audio.mk)
 
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += system/lib64/libtensorflowlite_jni.so
+# -----------------------------------------------------------------------------
+# Blueprint / artifact allowances
+# -----------------------------------------------------------------------------
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/lib64/libtensorflowlite_jni.so
 
 # Exclude repos from bp scanning
 PRODUCT_SOURCE_ROOT_DIRS += -kernel/platform
@@ -14,32 +25,22 @@ PRODUCT_SOURCE_ROOT_DIRS += -prebuilts/misc/protobuf_vendorcompat
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
+# -----------------------------------------------------------------------------
+# Branding
+# -----------------------------------------------------------------------------
+
 PRODUCT_BRAND ?= LineageOS
 
-ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=android-google
-else
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
-endif
-
-ifeq ($(PRODUCT_IS_ATV),true)
-ifeq ($(PRODUCT_ATV_CLIENTID_BASE),)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.oem.key1=ATV00100020
-else
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.oem.key1=$(PRODUCT_ATV_CLIENTID_BASE)
-endif
-endif
+# -----------------------------------------------------------------------------
+# ADB / build variant behaviour
+# -----------------------------------------------------------------------------
 
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.adb.secure=0
 else
 ifdef WITH_ADB_INSECURE
-# Forcebly disable ADB authentication
+# Forcefully disable ADB authentication
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.adb.secure=0
 else
 # Enable ADB authentication
@@ -53,7 +54,10 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
-# Backup Tool
+# -----------------------------------------------------------------------------
+# OTA / backup tools
+# -----------------------------------------------------------------------------
+
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/lineage/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
@@ -78,6 +82,10 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.ota.allow_downgrade=true
 endif
+
+# -----------------------------------------------------------------------------
+# Core permissions / init / framework integration
+# -----------------------------------------------------------------------------
 
 # Lineage-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
@@ -112,20 +120,24 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
-# Lineage SDK
 include vendor/lineage/config/lineage_sdk_common.mk
 endif
+
+# Lineage interfaces
+PRODUCT_PACKAGES += \
+    framework_compatibility_matrix.lineage.xml
+
+# -----------------------------------------------------------------------------
+# Build optimisation / enforcement
+# -----------------------------------------------------------------------------
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
-# Strip the local variable table and the local variable type table to reduce
-# the size of the system image. This has no bearing on stack traces, but will
-# leave less information available via JDWP.
+# Strip local variable debug metadata to reduce image size.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
-# Enable whole-program R8 Java optimizations for SystemUI and system_server,
-# but also allow explicit overriding for testing and development.
+# Enable whole-program R8 Java optimizations for SystemUI and system_server.
 SYSTEM_OPTIMIZE_JAVA ?= true
 SYSTEMUI_OPTIMIZE_JAVA ?= true
 
@@ -137,16 +149,34 @@ ifneq ($(TARGET_DISABLE_EPPE),true)
 $(call enforce-product-packages-exist-internal,$(lastword $(_include_stack)),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
-# Bootanimation
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    AppLocker \
+    GameSpace \
+    CarSystemUI \
+    SystemUI
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    dalvik.vm.systemuicompilerfilter=speed
+
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.sf.enable_transaction_tracing=false
+endif
+
+# -----------------------------------------------------------------------------
+# Boot animation
+# -----------------------------------------------------------------------------
+
 TARGET_SCREEN_WIDTH ?= 1080
 TARGET_SCREEN_HEIGHT ?= 1920
+
 PRODUCT_PACKAGES += \
     bootanimation.zip \
     bootanimation-dark.zip
 
-# Lineage interfaces
-PRODUCT_PACKAGES += \
-    framework_compatibility_matrix.lineage.xml
+# -----------------------------------------------------------------------------
+# Lineage applications / services
+# -----------------------------------------------------------------------------
 
 ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
 PRODUCT_PACKAGES += \
@@ -170,7 +200,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.graphics.game_default_frame_rate.disabled=true
 
-# Extra tools in Lineage
+# -----------------------------------------------------------------------------
+# Recovery / FRP
+# -----------------------------------------------------------------------------
+
+PRODUCT_COPY_FILES += \
+    vendor/lineage/prebuilt/common/bin/wipe-frp.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/wipe-frp
+
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    vendor/lineage/build/target/product/security/lineage
+
+# -----------------------------------------------------------------------------
+# Shell / developer tools
+# -----------------------------------------------------------------------------
+
 PRODUCT_PACKAGES += \
     bash \
     curl \
@@ -189,7 +232,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/setcap \
     system/%/libzstd.so
 
-# Filesystems tools
+# Filesystem tools
 PRODUCT_PACKAGES += \
     fsck.ntfs \
     mkfs.ntfs \
@@ -202,11 +245,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/%/libfuse-lite.so \
     system/%/libntfs-3g.so
 
-# FRP
-PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/wipe-frp.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/wipe-frp
-
-# Openssh
+# OpenSSH
 PRODUCT_PACKAGES += \
     scp \
     sftp \
@@ -227,11 +266,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     rsync
 
-# Storage manager
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.storage_manager.enabled=true
+# -----------------------------------------------------------------------------
+# Debug-only packages / root
+# -----------------------------------------------------------------------------
 
-# These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
 
@@ -242,11 +280,8 @@ endif
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 ifeq ($(WITH_SU),true)
-# Root
 PRODUCT_PACKAGES += \
-    adb_root
-
-PRODUCT_PACKAGES += \
+    adb_root \
     su
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
@@ -254,27 +289,9 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 endif
 endif
 
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    AppLocker \
-    GameSpace \
-    CarSystemUI \
-    SystemUI
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    dalvik.vm.systemuicompilerfilter=speed
-
-ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-PRODUCT_PRODUCT_PROPERTIES += \
-    debug.sf.enable_transaction_tracing=false
-endif
-
-# Audio files
-$(call inherit-product, vendor/lineage/audio/audio.mk)
-
-# SetupWizard
-PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.theme=glif_expressive \
-    setupwizard.feature.day_night_mode_enabled=true
+# -----------------------------------------------------------------------------
+# Overlays
+# -----------------------------------------------------------------------------
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
@@ -289,12 +306,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/lineage/build/target/product/security/lineage
+# -----------------------------------------------------------------------------
+# Versioning / signing / partner configuration
+# -----------------------------------------------------------------------------
 
 include vendor/lineage/config/version.mk
 
 -include vendor/lineage-priv/keys/keys.mk
-
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lineage/config/partner_gms.mk

@@ -115,6 +115,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.feature.enable_minors_setup_flow=true \
     setupwizard.feature.enable_parental_notice_activity=true \
     setupwizard.feature.enable_parental_setup=true \
+    setupwizard.feature.enable_quick_start_flow=true \
+    setupwizard.feature.enable_restore_anytime=true \
+    setupwizard.feature.enable_wifi_tracker=true \
     setupwizard.feature.enhanced_setup_design_metrics=true \
     setupwizard.feature.is_suw_onboarding_contract_enabled=true \
     setupwizard.feature.joined_up_loading=true \
@@ -141,8 +144,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # -----------------------------------------------------------------------------
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.ime.theme_id=5 \
-    ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+    ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms \
+    ro.com.google.ime.theme_id=5
 
 ifneq ($(TARGET_GBOARD_KEY_HEIGHT),)
 PRODUCT_PRODUCT_PROPERTIES += \
