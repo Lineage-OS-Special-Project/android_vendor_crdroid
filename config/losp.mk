@@ -55,6 +55,7 @@ PRODUCT_PACKAGES += \
     AxSandbox \
     AxThemeStore \
     BatteryStatsViewer \
+    Datura \
     GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
