@@ -1,0 +1,118 @@
+From 9efe22bafbfb56e30fe4e36b760b64867e1626e0 Mon Sep 17 00:00:00 2001
+From: yehonatan5785 <yehonatan@mail.ru>
+Date: Fri, 25 Sep 2026 11:15:17 +0100
+Subject: [PATCH] setup: Remove duplicate Pixel overlay implementations
+
+Extend the LOSP device setup wizard with automatic cleanup for audited Pixel overlay duplicates.
+
+Add remove_duplicate_pixel_overlays() to inspect the selected Google device tree, resolved family tree, and detected common platform tree before the final lunch verification.
+
+When a canonical implementation exists under vendor/pixel-style/rro_overlays, remove the matching duplicate device-tree implementation for the known audited overlay set. This prevents duplicate module definition failures while keeping vendor/pixel-style as the canonical source for reusable Pixel and Google overlays.
+
+The cleanup is intentionally restricted to an explicit list of verified duplicates, including AmbientCue, Glanceable Hub, GoogleConfig, Safety Center, and PixelConfig overlays, rather than attempting broad automatic duplicate discovery.
+
+The device-tree copy is never removed unless the corresponding pixel-style implementation is present, preserving a safe fallback if an overlay is later dropped from vendor/pixel-style.
+
+Signed-off-by: yehonatan5785 <yehonatan@mail.ru>
+---
+ build/device_setup.sh | 77 ++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 76 insertions(+), 1 deletion(-)
+
+diff --git a/build/device_setup.sh b/build/device_setup.sh
+index 4a5d51c8..eb00a7e9 100644
+--- a/build/device_setup.sh
++++ b/build/device_setup.sh
+@@ -818,6 +818,73 @@ PY
+     return 0
+ }
+ 
++remove_duplicate_pixel_overlays() {
++    local device_codename="$1"
++    local primary_device_path="$2"
++    local google_family="$3"
++
++    # Only applicable to Google Pixel device trees.
++    [[ "$primary_device_path" == device/google/* ]] || return 0
++
++    local pixel_style_overlays="vendor/pixel-style/rro_overlays"
++
++    if [[ ! -d "$pixel_style_overlays" ]]; then
++        show_warning "vendor/pixel-style overlays not found; skipping Pixel overlay cleanup"
++        return 0
++    fi
++
++    local duplicate_overlays=(
++        AmbientCueOverlay
++        GlanceableHubConfigOverlay
++        GlanceableHubSettingsConfigOverlay
++        GlanceableHubSettingsConfigOverlay2022
++        GlanceableHubSysuiConfigOverlay
++        GoogleConfigOverlay
++        GooglePermissionControllerSafetyCenterOverlay
++        PixelConfigOverlay2019
++        PixelConfigOverlay2021
++        PixelConfigOverlayCommon
++    )
++
++    local overlay canonical duplicate
++    local removed=0
++
++    echo
++    show_warning "Checking Google device trees for duplicate pixel-style overlays..."
++
++    for overlay in "${duplicate_overlays[@]}"; do
++        canonical="${pixel_style_overlays}/${overlay}"
++
++        # Never remove a device implementation unless the canonical
++        # pixel-style implementation actually exists.
++        [[ -d "$canonical" ]] || continue
++
++        while IFS= read -r duplicate; do
++            [[ -n "$duplicate" ]] || continue
++            [[ -d "$duplicate" ]] || continue
++
++            show_warning "Removing duplicate overlay: ${duplicate}"
++
++            rm -rf -- "$duplicate" || {
++                show_error "Failed to remove duplicate overlay: ${duplicate}"
++                return 1
++            }
++
++            ((removed += 1))
++        done < <(
++            find device/google                 -type d                 -path "*/overlay/${overlay}"                 -print 2>/dev/null
++        )
++    done
++
++    if [[ "$removed" -gt 0 ]]; then
++        show_success "Removed ${removed} duplicate Pixel overlay implementation(s)"
++    else
++        show_success "No duplicate Pixel overlay implementations found"
++    fi
++
++    return 0
++}
++
+ ensure_vendor_blobs() {
+     local device_codename="$1"
+     local primary_device_path="$2"
+@@ -1005,7 +1072,15 @@ setup_device_tree() {
+     show_progress "$current_step" "$total_steps" "Final device configuration..."
+ 
+     restore_device_changes || return 1
+-    apply_device_compatibility "$device_codename" "$primary_device_path" || return 1
++
++    remove_duplicate_pixel_overlays \
++        "$device_codename" \
++        "$primary_device_path" \
++        "$google_family" || return 1
++
++    apply_device_compatibility \
++        "$device_codename" \
++        "$primary_device_path" || return 1
+ 
+     echo
+     show_warning "Running release-aware lunch to verify environment..."
+-- 
+2.56.0
+

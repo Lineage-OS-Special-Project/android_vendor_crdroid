@@ -30,12 +30,15 @@ PRODUCT_PACKAGES += \
     arcore-1.48
 endif
 
-# Pixel Launcher
+# Launcher
 TARGET_INCLUDE_PIXEL_LAUNCHER ?= false
 
 ifeq ($(TARGET_INCLUDE_PIXEL_LAUNCHER),true)
 PRODUCT_PACKAGES += \
     NexusLauncherRelease
+else
+PRODUCT_PACKAGES += \
+    Launcher3QuickStep
 endif
 
 # Live wallpapers (Google devices only)
