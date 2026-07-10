@@ -38,6 +38,8 @@ PRODUCT_PACKAGES += \
     GsfProxy \
     FakeStore
 
+$(call inherit-product, prebuilts/calyx/fdroid/fdroid-repo.mk)
+
 else ifeq ($(LOSP_GMS_TYPE),vanilla)
 
 WITH_GMS := false
