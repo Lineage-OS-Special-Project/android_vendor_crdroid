@@ -244,6 +244,60 @@ EOF
     show_success "Saved LOSP build configuration to ${LOSP_BUILD_CONFIG_FILE}"
 }
 
+load_existing_losp_build_config() {
+    [[ -f "$LOSP_BUILD_CONFIG_FILE" ]] || return 1
+
+    local provider
+    local pixel_launcher
+
+    provider=$(
+        sed -n \
+            's/^[[:space:]]*LOSP_GMS_TYPE[[:space:]]*:=[[:space:]]*//p' \
+            "$LOSP_BUILD_CONFIG_FILE" |
+        tail -n 1
+    )
+
+    pixel_launcher=$(
+        sed -n \
+            's/^[[:space:]]*TARGET_INCLUDE_PIXEL_LAUNCHER[[:space:]]*:=[[:space:]]*//p' \
+            "$LOSP_BUILD_CONFIG_FILE" |
+        tail -n 1
+    )
+
+    case "$provider" in
+        gms|microg|vanilla)
+            LOSP_GMS_TYPE="$provider"
+            ;;
+        *)
+            show_warning "Invalid LOSP_GMS_TYPE in ${LOSP_BUILD_CONFIG_FILE}"
+            return 1
+            ;;
+    esac
+
+    case "$pixel_launcher" in
+        true|false)
+            TARGET_INCLUDE_PIXEL_LAUNCHER="$pixel_launcher"
+            ;;
+        *)
+            show_warning "Invalid launcher setting in ${LOSP_BUILD_CONFIG_FILE}"
+            return 1
+            ;;
+    esac
+
+    if [[ "$LOSP_GMS_TYPE" == "gms" ]]; then
+        WITH_GMS=true
+    else
+        WITH_GMS=false
+        TARGET_INCLUDE_PIXEL_LAUNCHER=false
+    fi
+
+    export LOSP_GMS_TYPE
+    export WITH_GMS
+    export TARGET_INCLUDE_PIXEL_LAUNCHER
+
+    return 0
+}
+
 # ================================================================
 # Device mapping / detection
 # ================================================================
@@ -1079,15 +1133,43 @@ AUTO_CONFIG=(
 )
 
 SKIP_QUESTIONS=false
+SKIP_PRODUCT_QUESTIONS=false
+
+HAS_BOARD_CONFIG=false
+HAS_PRODUCT_CONFIG=false
 
 if grep -q "# Build Optimization Configurations" "$TARGET_BOARD_CONFIG"; then
+    HAS_BOARD_CONFIG=true
+fi
+
+if load_existing_losp_build_config; then
+    HAS_PRODUCT_CONFIG=true
+fi
+
+if [[ "$HAS_BOARD_CONFIG" == true || "$HAS_PRODUCT_CONFIG" == true ]]; then
     echo
-    prompt_user "Existing build configuration found in BoardConfig.mk. Skip and use it? (Y/n)"
+
+    if [[ "$HAS_BOARD_CONFIG" == true && "$HAS_PRODUCT_CONFIG" == true ]]; then
+        prompt_user "Existing BoardConfig and LOSP product configuration found. Use the saved settings? (Y/n)"
+    elif [[ "$HAS_BOARD_CONFIG" == true ]]; then
+        prompt_user "Existing BoardConfig configuration found. Use the saved settings? (Y/n)"
+    else
+        prompt_user "Existing LOSP product configuration found. Use the saved settings? (Y/n)"
+    fi
+
     read -r use_existing
     [[ "$DEBUG" -eq 0 ]] && clear
+
     if [[ ! "$use_existing" =~ ^[Nn]$ ]]; then
-        show_success "Skipping interactive setup. Existing settings will be used."
-        SKIP_QUESTIONS=true
+        if [[ "$HAS_BOARD_CONFIG" == true ]]; then
+            SKIP_QUESTIONS=true
+        fi
+
+        if [[ "$HAS_PRODUCT_CONFIG" == true ]]; then
+            SKIP_PRODUCT_QUESTIONS=true
+        fi
+
+        show_success "Saved configuration will be used."
     else
         show_warning "Proceeding with manual configuration. Existing settings will be overwritten."
     fi
@@ -1281,6 +1363,7 @@ add_separator
 # Mobile services and launcher configuration
 # ================================================================
 
+if [[ "$SKIP_PRODUCT_QUESTIONS" == false ]]; then
 section_header "Mobile Services Configuration"
 
 while true; do
@@ -1377,6 +1460,31 @@ write_losp_build_config \
 
 add_separator
 [[ "$DEBUG" -eq 0 ]] && clear
+
+else
+    section_header "Mobile Services Configuration"
+
+    case "$LOSP_GMS_TYPE" in
+        gms)
+            show_success "Using saved provider: Google Mobile Services"
+            ;;
+        microg)
+            show_success "Using saved provider: microG"
+            ;;
+        vanilla)
+            show_success "Using saved provider: Vanilla"
+            ;;
+    esac
+
+    if [[ "$TARGET_INCLUDE_PIXEL_LAUNCHER" == "true" ]]; then
+        show_success "Using saved launcher: Google Pixel Launcher"
+    else
+        show_success "Using saved launcher: LOSP Special Launcher"
+    fi
+
+    add_separator
+    [[ "$DEBUG" -eq 0 ]] && clear
+fi
 
 # ================================================================
 # Final build instructions
