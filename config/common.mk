@@ -18,7 +18,8 @@ $(call inherit-product, vendor/lineage/audio/audio.mk)
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/lib64/libtensorflowlite_jni.so \
     system/etc/permissions/privapp-permissions-datura.xml \
-    system/priv-app/Datura/Datura.apk
+    system/priv-app/Datura/Datura.apk \
+    system/app/PrebuiltGmsCoreVic/PrebuiltGmsCoreVic.apk
 
 # Exclude repos from bp scanning
 PRODUCT_SOURCE_ROOT_DIRS += -kernel/platform
