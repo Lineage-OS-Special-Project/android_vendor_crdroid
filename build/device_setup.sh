@@ -29,6 +29,7 @@ ROM_VENDOR_CONFIG_PATH="vendor/lineage"
 STASH_DIRS=()
 
 DEVICE_CODENAME=""
+DEVICE_RELEASE=""
 LUNCH_COMBO=""
 BUILD_VARIANT=""
 
@@ -101,6 +102,49 @@ show_error() {
 validate_yn() {
     local input="$1"
     [[ "$input" =~ ^[YyNn]$ ]]
+}
+
+resolve_release_config() {
+    local device_codename="$1"
+
+    case "$device_codename" in
+        FP4)
+            echo "bp4a"
+            ;;
+        *)
+            echo "$ROM_FLAVOR"
+            ;;
+    esac
+}
+
+apply_device_compatibility() {
+    local device_codename="$1"
+    local device_tree_path="$2"
+
+    [[ "$device_codename" == "FP4" ]] || return 0
+
+    local board_config="${device_tree_path}/BoardConfig.mk"
+    local backup_file="${board_config}.losp-compat.bak"
+
+    if [[ ! -f "$board_config" ]]; then
+        show_error "FP4 BoardConfig not found: $board_config"
+        return 1
+    fi
+
+    if grep -qE '^TARGET_2ND_ARCH_VARIANT[[:space:]]*:=[[:space:]]*armv8-a[[:space:]]*$' "$board_config"; then
+        cp -n "$board_config" "$backup_file" || return 1
+        sed -i -E \
+            's/^(TARGET_2ND_ARCH_VARIANT[[:space:]]*:=[[:space:]]*)armv8-a[[:space:]]*$/\1armv8-2a/' \
+            "$board_config" || return 1
+        show_success "Updated FP4 secondary architecture variant to armv8-2a"
+    elif grep -qE '^TARGET_2ND_ARCH_VARIANT[[:space:]]*:=[[:space:]]*armv8-2a[[:space:]]*$' "$board_config"; then
+        show_success "FP4 secondary architecture variant is already compatible"
+    else
+        show_error "Unexpected TARGET_2ND_ARCH_VARIANT in $board_config"
+        return 1
+    fi
+
+    return 0
 }
 
 add_separator() {
@@ -973,18 +1017,13 @@ setup_device_tree() {
     [[ "$DEBUG" -eq 0 ]] && clear
     show_progress "$current_step" "$total_steps" "Final device configuration..."
 
+    restore_device_changes || return 1
+    apply_device_compatibility "$device_codename" "$primary_device_path" || return 1
+
     echo
-    show_warning "Running breakfast to verify environment..."
-    breakfast "$device_codename" || return 1
-
-    restore_device_changes
-
-    if [[ -n "$build_variant" ]]; then
-        echo
-        show_warning "Setting build variant to: $build_variant"
-        export TARGET_BUILD_VARIANT="$build_variant"
-        export TARGET_BUILD_TYPE="$build_variant"
-    fi
+    show_warning "Running release-aware lunch to verify environment..."
+    echo -e "${BLUE}Command:${RESET} lunch $lunch_combo"
+    lunch "$lunch_combo" || return 1
 
     return 0
 }
@@ -1028,14 +1067,22 @@ while true; do
 
     if [[ "$USER_INPUT" == lineage_*-*-* ]]; then
         DEVICE_CODENAME=$(echo "$USER_INPUT" | sed 's/lineage_\([^-]*\)-.*/\1/')
-        LUNCH_COMBO="$USER_INPUT"
+        DEVICE_RELEASE=$(echo "$USER_INPUT" | sed 's/^lineage_[^-]*-\([^-]*\)-[^-]*$/\1/')
         BUILD_VARIANT=$(echo "$USER_INPUT" | sed 's/.*-//')
+
+        if [[ "$DEVICE_CODENAME" == "FP4" && "$DEVICE_RELEASE" != "bp4a" ]]; then
+            show_warning "FP4 requires bp4a; overriding requested release '$DEVICE_RELEASE'."
+            DEVICE_RELEASE="bp4a"
+        fi
+
+        LUNCH_COMBO="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}-${DEVICE_RELEASE}-${BUILD_VARIANT}"
     else
         DEVICE_CODENAME="$USER_INPUT"
         prompt_user "Build variant - user or userdebug? (default: userdebug)"
         read -r BUILD_VARIANT
         BUILD_VARIANT="${BUILD_VARIANT:-userdebug}"
-        LUNCH_COMBO="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}-${ROM_FLAVOR}-${BUILD_VARIANT}"
+        DEVICE_RELEASE=$(resolve_release_config "$DEVICE_CODENAME")
+        LUNCH_COMBO="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}-${DEVICE_RELEASE}-${BUILD_VARIANT}"
     fi
 
     [[ "$DEBUG" -eq 0 ]] && clear
@@ -1050,8 +1097,14 @@ while true; do
         export TARGET_BUILD_TYPE="$BUILD_VARIANT"
         export TARGET_PRODUCT="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}"
 
-        LUNCH_COMBO="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}-${ROM_FLAVOR}-${BUILD_VARIANT}"
-        lunch "$LUNCH_COMBO"
+        if ! lunch "$LUNCH_COMBO"; then
+            show_error "Final lunch configuration failed: $LUNCH_COMBO"
+            if is_sourced; then
+                return 1
+            else
+                exit 1
+            fi
+        fi
 
         [[ "$DEBUG" -eq 0 ]] && clear
         break
@@ -1514,6 +1567,7 @@ echo -e "================================================${RESET}"
 echo
 echo -e "ROM: ${CYAN}${ROM_NAME}${RESET}"
 echo -e "Device: ${CYAN}${DEVICE_CODENAME}${RESET}"
+echo -e "Release config: ${CYAN}${DEVICE_RELEASE}${RESET}"
 echo -e "Build variant: ${CYAN}${BUILD_VARIANT}${RESET}"
 echo "Build type: $BUILD_FLAVOR"
 echo -e "Config file modified: ${CYAN}${TARGET_BOARD_CONFIG}${RESET}"
