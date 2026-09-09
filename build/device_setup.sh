@@ -23,7 +23,7 @@ RESET='\033[0m'
 
 ROM_NAME="LOSP"
 ROM_PRODUCT_PREFIX="lineage"
-ROM_FLAVOR="cp2a"
+ROM_FLAVOR="bp4a"
 ROM_BUILD_TARGET="losp"
 ROM_VENDOR_CONFIG_PATH="vendor/lineage"
 STASH_DIRS=()
@@ -102,19 +102,6 @@ show_error() {
 validate_yn() {
     local input="$1"
     [[ "$input" =~ ^[YyNn]$ ]]
-}
-
-resolve_release_config() {
-    local device_codename="$1"
-
-    case "$device_codename" in
-        FP4)
-            echo "bp4a"
-            ;;
-        *)
-            echo "$ROM_FLAVOR"
-            ;;
-    esac
 }
 
 apply_device_compatibility() {
@@ -1070,18 +1057,13 @@ while true; do
         DEVICE_RELEASE=$(echo "$USER_INPUT" | sed 's/^lineage_[^-]*-\([^-]*\)-[^-]*$/\1/')
         BUILD_VARIANT=$(echo "$USER_INPUT" | sed 's/.*-//')
 
-        if [[ "$DEVICE_CODENAME" == "FP4" && "$DEVICE_RELEASE" != "bp4a" ]]; then
-            show_warning "FP4 requires bp4a; overriding requested release '$DEVICE_RELEASE'."
-            DEVICE_RELEASE="bp4a"
-        fi
-
         LUNCH_COMBO="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}-${DEVICE_RELEASE}-${BUILD_VARIANT}"
     else
         DEVICE_CODENAME="$USER_INPUT"
         prompt_user "Build variant - user or userdebug? (default: userdebug)"
         read -r BUILD_VARIANT
         BUILD_VARIANT="${BUILD_VARIANT:-userdebug}"
-        DEVICE_RELEASE=$(resolve_release_config "$DEVICE_CODENAME")
+        DEVICE_RELEASE="$ROM_FLAVOR"
         LUNCH_COMBO="${ROM_PRODUCT_PREFIX}_${DEVICE_CODENAME}-${DEVICE_RELEASE}-${BUILD_VARIANT}"
     fi
 
