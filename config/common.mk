@@ -48,14 +48,11 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += ro.adb.secure=0
 else
 # Enable ADB authentication
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.adb.secure=1
-
-# Set ro.debuggable=0 for userdebug
-PRODUCT_NOT_DEBUGGABLE_IN_USERDEBUG := true
+endif
 endif
 
 # Disable extra StrictMode features on all non-engineering builds
 PRODUCT_PRODUCT_PROPERTIES += persist.sys.strictmode.disable=true
-endif
 
 # -----------------------------------------------------------------------------
 # OTA / backup tools
