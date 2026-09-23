@@ -18,15 +18,13 @@ $(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 endif
 
 # -----------------------------------------------------------------------------
-# Pixel-targeted overlay packages
+# Pixel / Google product overlays
 # -----------------------------------------------------------------------------
 
 PRODUCT_PACKAGES += \
     AvatarPickerPixelOverlay \
     CellBroadcastReceiverOverlay \
-    CellBroadcastServiceOverlay \
     GoogleConfigOverlay \
-    GoogleDeviceLockControllerOverlay \
     GoogleHealthConnectOverlay \
     GooglePermissionControllerOverlay \
     GooglePermissionControllerSafetyCenterOverlay \
@@ -39,19 +37,8 @@ PRODUCT_PACKAGES += \
     PixelContactsProvider \
     PixelDeviceDiagnostics \
     PixelDocumentsUIGoogleOverlay \
-    PixelSettingsGoogle \
-    PixelSettingsProvider \
-    PixelSetupWizardOverlayExpressive \
-    PixelSystemUIGoogle \
-    PixelTelecom \
-    PixelTeleService \
-    Pixelframework-res \
-    SystemUIGXOverlay \
-    UdfpsOverlay \
     VerifierResOverlay \
-    WallpaperPicker2Overlay \
-    WallpaperPicker2PixelOverlay \
-    WildlifeSettingsVpnOverlay2022
+    WallpaperPicker2Overlay
 
 # -----------------------------------------------------------------------------
 # Default sounds (non-GMS)
