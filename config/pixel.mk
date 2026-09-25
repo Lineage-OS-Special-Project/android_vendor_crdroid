@@ -12,6 +12,9 @@ DISABLE_DEXPREOPT_CHECK := true
 # Pixel audio
 $(call inherit-product-if-exists, vendor/pixel-style/config/audio.mk)
 
+# Pixel vibration patterns
+$(call inherit-product, vendor/pixel-style/config/vibration.mk)
+
 # PixelParts (Google devices only)
 ifneq ($(filter Google google,$(PRODUCT_MANUFACTURER)),)
 $(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
