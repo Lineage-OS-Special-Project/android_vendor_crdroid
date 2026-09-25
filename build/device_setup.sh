@@ -818,6 +818,73 @@ PY
     return 0
 }
 
+remove_duplicate_pixel_overlays() {
+    local device_codename="$1"
+    local primary_device_path="$2"
+    local google_family="$3"
+
+    # Only applicable to Google Pixel device trees.
+    [[ "$primary_device_path" == device/google/* ]] || return 0
+
+    local pixel_style_overlays="vendor/pixel-style/rro_overlays"
+
+    if [[ ! -d "$pixel_style_overlays" ]]; then
+        show_warning "vendor/pixel-style overlays not found; skipping Pixel overlay cleanup"
+        return 0
+    fi
+
+    local duplicate_overlays=(
+        AmbientCueOverlay
+        GlanceableHubConfigOverlay
+        GlanceableHubSettingsConfigOverlay
+        GlanceableHubSettingsConfigOverlay2022
+        GlanceableHubSysuiConfigOverlay
+        GoogleConfigOverlay
+        GooglePermissionControllerSafetyCenterOverlay
+        PixelConfigOverlay2019
+        PixelConfigOverlay2021
+        PixelConfigOverlayCommon
+    )
+
+    local overlay canonical duplicate
+    local removed=0
+
+    echo
+    show_warning "Checking Google device trees for duplicate pixel-style overlays..."
+
+    for overlay in "${duplicate_overlays[@]}"; do
+        canonical="${pixel_style_overlays}/${overlay}"
+
+        # Never remove a device implementation unless the canonical
+        # pixel-style implementation actually exists.
+        [[ -d "$canonical" ]] || continue
+
+        while IFS= read -r duplicate; do
+            [[ -n "$duplicate" ]] || continue
+            [[ -d "$duplicate" ]] || continue
+
+            show_warning "Removing duplicate overlay: ${duplicate}"
+
+            rm -rf -- "$duplicate" || {
+                show_error "Failed to remove duplicate overlay: ${duplicate}"
+                return 1
+            }
+
+            ((removed += 1))
+        done < <(
+            find device/google                 -type d                 -path "*/overlay/${overlay}"                 -print 2>/dev/null
+        )
+    done
+
+    if [[ "$removed" -gt 0 ]]; then
+        show_success "Removed ${removed} duplicate Pixel overlay implementation(s)"
+    else
+        show_success "No duplicate Pixel overlay implementations found"
+    fi
+
+    return 0
+}
+
 ensure_vendor_blobs() {
     local device_codename="$1"
     local primary_device_path="$2"
@@ -1005,7 +1072,15 @@ setup_device_tree() {
     show_progress "$current_step" "$total_steps" "Final device configuration..."
 
     restore_device_changes || return 1
-    apply_device_compatibility "$device_codename" "$primary_device_path" || return 1
+
+    remove_duplicate_pixel_overlays \
+        "$device_codename" \
+        "$primary_device_path" \
+        "$google_family" || return 1
+
+    apply_device_compatibility \
+        "$device_codename" \
+        "$primary_device_path" || return 1
 
     echo
     show_warning "Running release-aware lunch to verify environment..."
