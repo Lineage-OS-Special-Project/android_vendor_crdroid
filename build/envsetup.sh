@@ -935,7 +935,7 @@ function build_kernel() {
         echo "Skipping kernel build"
         return
     fi
-    local lineage_version="$(_get_build_var_cached PRODUCT_VERSION_MAJOR).$(_get_build_var_cached PRODUCT_VERSION_MINOR)"
+    local lineage_version="lineage-$(_get_build_var_cached PRODUCT_VERSION_MAJOR).$(_get_build_var_cached PRODUCT_VERSION_MINOR)"
 
     local target_kernel_device="$(_get_build_var_cached TARGET_KERNEL_DEVICE)"
     local target_kernel_dir="${ANDROID_BUILD_TOP}/$(_get_build_var_cached TARGET_KERNEL_DIR)"
@@ -977,11 +977,14 @@ function build_kernel() {
         echo "Syncing ${KERNEL_BUILD_TOP}"
         local target_kernel_manifest=$(echo android_kernel_${target_kernel_source}_manifest | tr / _)
         local repo_init_args=("-b" "${lineage_version}")
+        if [ -n "${LINEAGE_MIRROR}" ]; then
+            repo_init_args+=("--reference" "${LINEAGE_MIRROR}")
+        fi
         if [ -n "${REPO_VERSION}" ]; then
             repo_init_args+=("--repo-rev" "${REPO_VERSION}")
         fi
 
-        yes | repo init -u https://github.com/crdroidandroid/${target_kernel_manifest}.git ${repo_init_args[@]} || [ $? -eq 141 ]
+        yes | repo init -u https://github.com/LineageOS/${target_kernel_manifest}.git ${repo_init_args[@]} || [ $? -eq 141 ]
         if [ $? -ne 0 ]; then
             echo "Kernel source repo init failed"
             popd > /dev/null
@@ -1019,16 +1022,3 @@ function build_kernel() {
     chmod -x "${target_kernel_dir}/"*
     echo "Kernel build output copied to ${target_kernel_dir}/"
 }
-
-function generate_host_overrides() {
-    export BUILD_USERNAME=android-build
-    HEX=$(openssl rand -hex 8)
-    ALPHA=$(cat /dev/urandom | tr -dc 'a-z0-9' | head -c 4)
-    export BUILD_HOSTNAME="r-${HEX}-${ALPHA}"
-    echo "BUILD_USERNAME=$BUILD_USERNAME"
-    echo "BUILD_HOSTNAME=$BUILD_HOSTNAME"
-}
-
-generate_host_overrides
-
-export USE_THINLTO_CACHE=true
