@@ -58,7 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Legal
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.crdroidlegal.url=https://crdroid.net/legal.php
+    ro.lineagelegal.url=https://lineageos.org/legal
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
