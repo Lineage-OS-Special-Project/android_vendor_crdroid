@@ -1,7 +1,8 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
-$(call inherit-product-if-exists, vendor/lineage/config/crdroid.mk)
+$(call inherit-product-if-exists, vendor/lineage/config/losp.mk)
 $(call inherit-product-if-exists, vendor/addons/config.mk)
+$(call inherit-product, vendor/lineage/config/pixel.mk)
 
 # Exclude repos from bp scanning
 PRODUCT_SOURCE_ROOT_DIRS += -kernel/platform
@@ -11,24 +12,6 @@ PRODUCT_SOURCE_ROOT_DIRS += -prebuilts/misc/protobuf_vendorcompat
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
 PRODUCT_BRAND ?= crDroidAndroid
-
-ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=android-google
-else
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
-endif
-
-ifeq ($(PRODUCT_IS_ATV),true)
-ifeq ($(PRODUCT_ATV_CLIENTID_BASE),)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.oem.key1=ATV00100020
-else
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.oem.key1=$(PRODUCT_ATV_CLIENTID_BASE)
-endif
-endif
 
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
@@ -228,10 +211,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     rsync
 
-# Storage manager
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.storage_manager.enabled=true
-
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
@@ -270,11 +249,6 @@ endif
 
 # Audio files
 $(call inherit-product, vendor/lineage/audio/audio.mk)
-
-# SetupWizard
-PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.theme=glif_expressive \
-    setupwizard.feature.day_night_mode_enabled=true
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \

@@ -1,19 +1,7 @@
-# Additional props
+# LOSP product properties
 PRODUCT_PRODUCT_PROPERTIES += \
     dalvik.vm.debug.alloc=0 \
-    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.error.receiver.system.apps=com.google.android.gms \
-    ro.setupwizard.enterprise_mode=1 \
-    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
-    ro.setupwizard.rotation_locked=true \
-    ro.com.google.ime.theme_id=5 \
-    ro.opa.eligible_device=true \
     ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.setupwizard.network_required=false \
-    ro.setupwizard.gservices_delay=-1 \
-    ro.setupwizard.mode=OPTIONAL \
-    setupwizard.feature.predeferred_enabled=false \
     drm.service.enabled=true \
     persist.sys.dun.override=0 \
     persist.sys.disable_rescue=true
@@ -25,7 +13,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Cloned app exemption
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-crdroid-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-crdroid-product.xml
+    vendor/lineage/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-losp-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-losp-product.xml
 
 # ColumbusService
 ifneq ($(TARGET_SUPPORTS_QUICK_TAP),false)
@@ -57,7 +45,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # DeviceAsWebcam
-ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
+ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM),true)
 PRODUCT_PACKAGES += \
     DeviceAsWebcam
 
