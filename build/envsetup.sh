@@ -1022,3 +1022,16 @@ function build_kernel() {
     chmod -x "${target_kernel_dir}/"*
     echo "Kernel build output copied to ${target_kernel_dir}/"
 }
+
+# Load and run the LOSP device setup wizard after normal envsetup initialization.
+# Pass --skip-setup to skip only the interactive LOSP setup.
+if [ -f "$(gettop)/vendor/lineage/build/device_setup.sh" ]; then
+    source "$(gettop)/vendor/lineage/build/device_setup.sh"
+    if [ "${1:-}" = "--skip-setup" ]; then
+        echo "LOSP device setup skipped (--skip-setup)."
+    else
+        losp_device_setup
+    fi
+else
+    echo "LOSP device setup script not found."
+fi
