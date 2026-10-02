@@ -756,6 +756,102 @@ PY
     return 0
 }
 
+remove_duplicate_device_intelligence_network_for_pixel10() {
+    local device_codename="$1"
+    local device_bp="vendor/google/${device_codename}/Android.bp"
+    local canonical_mk="vendor/gms/product/packages/privileged_apps/DeviceIntelligenceNetworkPrebuiltAstrea/Android.mk"
+    local module_name="DeviceIntelligenceNetworkPrebuiltAstrea"
+
+    case "$device_codename" in
+        frankel|blazer|mustang|rango)
+            ;;
+        *)
+            return 0
+            ;;
+    esac
+    [[ -f "$device_bp" ]] || return 0
+
+    if [[ ! -f "$canonical_mk" ]] || \
+        ! grep -qE "^[[:space:]]*LOCAL_MODULE[[:space:]]*:=[[:space:]]*${module_name}([[:space:]]|$)" "$canonical_mk"; then
+        show_success "${module_name} not found in vendor/gms; keeping device vendor copy"
+        return 0
+    fi
+
+    if ! grep -q "name:[[:space:]]*\"${module_name}\"" "$device_bp"; then
+        show_success "No ${module_name} module found in ${device_bp}"
+        return 0
+    fi
+
+    show_warning "Removing duplicate ${module_name} module from ${device_bp}"
+
+    if ! cp -n "$device_bp" "${device_bp}.losp-device-intelligence-network.bak"; then
+        show_error "Failed to back up ${device_bp}"
+        return 1
+    fi
+
+    python3 - "$device_bp" "$module_name" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+bp = Path(sys.argv[1])
+module_name = sys.argv[2]
+text = bp.read_text()
+matches = []
+
+for module in re.finditer(r"(?m)^android_app_import[ \t]*\{", text):
+    brace_start = text.find("{", module.start(), module.end())
+    depth = 0
+    end = None
+    for pos in range(brace_start, len(text)):
+        ch = text[pos]
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end = pos + 1
+                break
+
+    if end is None:
+        sys.exit(2)
+
+    block = text[module.start():end]
+    if re.search(r'(?m)^\s*name\s*:\s*"' + re.escape(module_name) + r'"\s*,?\s*$', block):
+        matches.append((module.start(), end))
+
+if len(matches) != 1:
+    sys.exit(2)
+
+start, end = matches[0]
+while end < len(text) and text[end] in " \t\r\n":
+    end += 1
+
+bp.write_text(text[:start] + text[end:])
+PY
+
+    case "$?" in
+        0)
+            show_success "Removed duplicate ${module_name} module from ${device_bp}"
+            ;;
+        2)
+            show_error "${module_name} was found, but exactly one matching android_app_import block could not be removed"
+            return 1
+            ;;
+        *)
+            show_error "Failed while editing ${device_bp}"
+            return 1
+            ;;
+    esac
+
+    if grep -q "name:[[:space:]]*\"${module_name}\"" "$device_bp"; then
+        show_error "${module_name} still exists in ${device_bp}"
+        return 1
+    fi
+
+    return 0
+}
+
 remove_duplicate_pixel_overlays() {
     local primary_device_path="$1"
 
@@ -899,6 +995,7 @@ ensure_vendor_blobs() {
     fi
 
     remove_duplicate_moseyapp_for_pixel10 "$device_codename" || return 1
+    remove_duplicate_device_intelligence_network_for_pixel10 "$device_codename" || return 1
 
     return 0
 }
