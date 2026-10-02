@@ -1,3 +1,4 @@
 proprietary/*
 prebuilt/archive
 prebuilt/generated/*
+.losp_build_config.mk
