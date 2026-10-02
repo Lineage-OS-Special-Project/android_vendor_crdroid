@@ -756,6 +756,112 @@ PY
     return 0
 }
 
+remove_duplicate_pixel_overlays() {
+    local primary_device_path="$1"
+
+    # Only applicable to Google Pixel device trees.
+    [[ "$primary_device_path" == device/google/* ]] || return 0
+
+    local pixel_style_overlays="vendor/pixel-style/rro_overlays"
+
+    if [[ ! -d "$pixel_style_overlays" ]]; then
+        show_warning "vendor/pixel-style overlays not found; skipping Pixel overlay cleanup"
+        return 0
+    fi
+
+    local duplicate_overlays=(
+        AmbientCueOverlay
+        GlanceableHubConfigOverlay
+        GlanceableHubSettingsConfigOverlay
+        GlanceableHubSettingsConfigOverlay2022
+        GlanceableHubSysuiConfigOverlay
+        GoogleConfigOverlay
+        GooglePermissionControllerSafetyCenterOverlay
+        PixelConfigOverlay2019
+        PixelConfigOverlay2021
+        PixelConfigOverlayCommon
+    )
+
+    local relevant_device_trees=("$primary_device_path")
+    local pending_device_trees=("$primary_device_path")
+    local dependency_file dependency_path candidate device_tree known
+
+    # Follow the same lineage.dependencies metadata consumed by the existing
+    # device dependency setup, starting at the selected product tree.
+    while [[ "${#pending_device_trees[@]}" -gt 0 ]]; do
+        local next_device_trees=()
+
+        for device_tree in "${pending_device_trees[@]}"; do
+            dependency_file="${device_tree}/lineage.dependencies"
+            [[ -f "$dependency_file" ]] || continue
+
+            while IFS= read -r dependency_path; do
+                [[ "$dependency_path" == device/google/* ]] || continue
+                # Prebuilt kernel dependencies are not device configuration trees.
+                [[ "$dependency_path" == *-kernels ]] && continue
+                [[ -d "$dependency_path" ]] || continue
+
+                known=false
+                for candidate in "${relevant_device_trees[@]}"; do
+                    if [[ "$candidate" == "$dependency_path" ]]; then
+                        known=true
+                        break
+                    fi
+                done
+                if [[ "$known" != "true" ]]; then
+                    relevant_device_trees+=("$dependency_path")
+                    next_device_trees+=("$dependency_path")
+                fi
+            done < <(
+                sed -n -E 's/^[[:space:]]*"target_path"[[:space:]]*:[[:space:]]*"([^"]+)".*$/\1/p' \
+                    "$dependency_file"
+            )
+        done
+
+        pending_device_trees=("${next_device_trees[@]}")
+    done
+
+    local overlay canonical duplicate device_tree
+    local removed=0
+
+    echo
+    show_warning "Checking Google device trees for duplicate pixel-style overlays..."
+
+    for overlay in "${duplicate_overlays[@]}"; do
+        canonical="${pixel_style_overlays}/${overlay}"
+
+        # Preserve the device-tree implementation if Pixel-style no longer
+        # provides the audited canonical overlay.
+        [[ -d "$canonical" ]] || continue
+
+        for device_tree in "${relevant_device_trees[@]}"; do
+            while IFS= read -r duplicate; do
+                [[ -n "$duplicate" ]] || continue
+                [[ -d "$duplicate" ]] || continue
+
+                show_warning "Removing duplicate overlay: ${duplicate}"
+
+                rm -rf -- "$duplicate" || {
+                    show_error "Failed to remove duplicate overlay: ${duplicate}"
+                    return 1
+                }
+
+                ((removed += 1))
+            done < <(
+                find "$device_tree" -type d -path "*/overlay/${overlay}" -print 2>/dev/null
+            )
+        done
+    done
+
+    if [[ "$removed" -gt 0 ]]; then
+        show_success "Removed ${removed} duplicate Pixel overlay implementation(s)"
+    else
+        show_success "No duplicate Pixel overlay implementations found"
+    fi
+
+    return 0
+}
+
 ensure_vendor_blobs() {
     local device_codename="$1"
     local primary_device_path="$2"
@@ -950,6 +1056,8 @@ setup_device_tree() {
     fi
 
     restore_device_changes || return 1
+
+    remove_duplicate_pixel_overlays "$primary_device_path" || return 1
 
     if [[ -n "$build_variant" ]]; then
         echo
