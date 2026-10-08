@@ -33,8 +33,6 @@ PRODUCT_PACKAGES += \
     GoogleHealthConnectOverlay \
     GooglePermissionControllerOverlay \
     GooglePermissionControllerSafetyCenterOverlay \
-    GoogleSettingsOverlay \
-    GoogleSystemUIOverlay \
     GoogleWebViewOverlay \
     ManagedProvisioningPixelOverlay \
     PixelAccessibilityMenu \
