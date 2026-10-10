@@ -40,10 +40,8 @@ PRODUCT_PACKAGES += \
     PixelContactsProvider \
     PixelDeviceDiagnostics \
     PixelDocumentsUIGoogleOverlay \
-    PixelSettingsGoogle \
     PixelSettingsProvider \
     PixelSetupWizardOverlayExpressive \
-    PixelSystemUIGoogle \
     PixelTelecom \
     PixelTeleService \
     Pixelframework-res \
