@@ -9,6 +9,10 @@
 # APEX
 DISABLE_DEXPREOPT_CHECK := true
 
+# TensorFlow Lite JNI
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/lib/libtensorflowlite_jni.so
+
 # Pixel audio
 $(call inherit-product-if-exists, vendor/pixel-style/config/audio.mk)
 
