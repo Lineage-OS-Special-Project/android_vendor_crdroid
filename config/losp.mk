@@ -28,6 +28,20 @@ PRODUCT_PRODUCT_PROPERTIES += is_expressive_design_enabled=true
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     dalvik.vm.dex2oat64.enabled=true
 
+# LOSP extras
+$(call inherit-product, vendor/extras/losp.mk)
+
+# Extra packages
+PRODUCT_PACKAGES += \
+    AxSandbox \
+    AxThemeStore \
+    BatteryStatsViewer \
+    GameSpace \
+    LMOFreeform \
+    LMOFreeformSidebar \
+    OmniJaws \
+    OmniStyle
+
 # Extra packages
 PRODUCT_PACKAGES += \
     AxSandbox \
