@@ -24,7 +24,7 @@ $(LINEAGE_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) mv -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).sha256sum
 	$(hide) rm -rf $(call intermediates-dir-for,PACKAGING,target_files)
-	$(hide) ./vendor/lineage/build/tasks/ascii_output.sh
+	$(hide) ./vendor/lineage/build/tasks/package_summary.sh "$(LINEAGE_TARGET_PACKAGE)" "$(LINEAGE_TARGET_PACKAGE).sha256sum" || true
 
 .PHONY: losp
 losp: $(LINEAGE_TARGET_PACKAGE) $(DEFAULT_GOAL)
