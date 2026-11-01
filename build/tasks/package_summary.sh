@@ -13,12 +13,18 @@ checksum_file=${2-}
 color_heading=
 color_success=
 color_reset=
-if [ -t 1 ] && [ -z "${NO_COLOR+x}" ] && [ -n "${TERM-}" ] && [ "$TERM" != dumb ] && command -v tput >/dev/null 2>&1; then
-    if [ "$(tput colors 2>/dev/null)" -ge 8 ] 2>/dev/null; then
-        color_heading=$(tput setaf 6 2>/dev/null)
-        color_success=$(tput setaf 2 2>/dev/null)
-        color_reset=$(tput sgr0 2>/dev/null)
-    fi
+if [ -t 1 ] && [ -z "${NO_COLOR+x}" ] && [ "${TERM-}" != dumb ]; then
+    color_reset=$(printf '\033[0m')
+    case "${COLORTERM-}" in
+        truecolor|24bit)
+            color_heading=$(printf '\033[38;2;16;200;200m')
+            color_success=$(printf '\033[38;2;69;169;120m')
+            ;;
+        *)
+            color_heading=$(printf '\033[36m')
+            color_success=$(printf '\033[32m')
+            ;;
+    esac
 fi
 
 size=
