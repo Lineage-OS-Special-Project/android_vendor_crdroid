@@ -1334,7 +1334,12 @@ setup_device_tree() {
 # Sourcing this file is interactive-setup-free. build/envsetup.sh invokes this
 # function automatically unless --skip-setup is supplied.
 losp_device_setup() {
-export NINJA_STATUS=$'[\033[1;32m%f\033[0m/\033[1;36m%t\033[0m (\033[1;34m%p\033[0m) Elapsed: \033[1;33m%es\033[0m]                                          '
+# Soong recognizes this LOSP-owned semantic format and applies terminal colors
+# according to its TTY, TERM, NO_COLOR, and COLORTERM policy. Preserve a user's
+# explicit NINJA_STATUS override.
+if [[ ! -v NINJA_STATUS ]]; then
+    export NINJA_STATUS='__LOSP_NINJA_STATUS_V1__'
+fi
 [[ "$DEBUG" -eq 0 ]] && clear
 
 # ================================================================
