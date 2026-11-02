@@ -1341,6 +1341,11 @@ if [[ ! -v NINJA_STATUS ]]; then
     export NINJA_STATUS='__LOSP_NINJA_STATUS_V1__'
 fi
 [[ "$DEBUG" -eq 0 ]] && clear
+if [[ "${LOSP_ASCII_BANNER_PENDING:-0}" == "1" ]]; then
+    print_losp_banner
+    export LOSP_ASCII_BANNER_SHOWN=1
+    unset LOSP_ASCII_BANNER_PENDING
+fi
 
 # ================================================================
 # ccache
