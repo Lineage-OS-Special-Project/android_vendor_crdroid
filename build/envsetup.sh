@@ -1023,13 +1023,33 @@ function build_kernel() {
     echo "Kernel build output copied to ${target_kernel_dir}/"
 }
 
+# Print LOSP branding once per interactive shell session. This file is sourced
+# by build/make/envsetup.sh during environment initialization, not by each m
+# invocation. device_setup.sh initializes the LOSP terminal colors before the banner is printed.
+function print_losp_banner() {
+    printf '%s██╗      ██████╗ ███████╗██████╗%s\n' "$LOSP_TEAL" "$RESET"
+    printf '%s██║     ██╔═══██╗██╔════╝██╔══██╗%s\n' "$LOSP_TEAL" "$RESET"
+    printf '%s██║     ██║   ██║███████╗██████╔╝%s\n' "$LOSP_TEAL" "$RESET"
+    printf '%s██║     ██║   ██║╚════██║██╔═══╝%s\n' "$LOSP_TEAL" "$RESET"
+    printf '%s███████╗╚██████╔╝███████║██║%s\n' "$LOSP_TEAL" "$RESET"
+    printf '%s╚══════╝ ╚═════╝ ╚══════╝╚═╝%s\n' "$LOSP_TEAL" "$RESET"
+    printf '\n%sLineage OS Special Project%s\n\n' "$LOSP_TEAL" "$RESET"
+}
+
 # Load and run the LOSP device setup wizard after normal envsetup initialization.
 # Pass --skip-setup to skip only the interactive LOSP setup.
 if [ -f "$(gettop)/vendor/lineage/build/device_setup.sh" ]; then
     source "$(gettop)/vendor/lineage/build/device_setup.sh"
     if [ "${1:-}" = "--skip-setup" ]; then
+        if [[ -z "${LOSP_ASCII_BANNER_SHOWN:-}" ]]; then
+            print_losp_banner
+            export LOSP_ASCII_BANNER_SHOWN=1
+        fi
         echo "LOSP device setup skipped (--skip-setup)."
     else
+        if [[ -z "${LOSP_ASCII_BANNER_SHOWN:-}" ]]; then
+            LOSP_ASCII_BANNER_PENDING=1
+        fi
         losp_device_setup
     fi
 else
