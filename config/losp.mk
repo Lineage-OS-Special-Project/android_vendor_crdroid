@@ -43,6 +43,11 @@ PRODUCT_PACKAGES += \
     OmniJaws \
     OmniStyle
 
+# Datura system artifacts
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/etc/permissions/privapp-permissions-datura.xml \
+    system/priv-app/Datura/Datura.apk
+
 ifneq ($(TARGET_DISABLE_MATLOG),true)
 PRODUCT_PACKAGES += \
     MatLog
