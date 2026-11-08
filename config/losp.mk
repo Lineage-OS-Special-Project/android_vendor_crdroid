@@ -36,17 +36,7 @@ PRODUCT_PACKAGES += \
     AxSandbox \
     AxThemeStore \
     BatteryStatsViewer \
-    GameSpace \
-    LMOFreeform \
-    LMOFreeformSidebar \
-    OmniJaws \
-    OmniStyle
-
-# Extra packages
-PRODUCT_PACKAGES += \
-    AxSandbox \
-    AxThemeStore \
-    BatteryStatsViewer \
+    Datura \
     GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
