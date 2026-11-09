@@ -8,6 +8,10 @@ $(call inherit-product-if-exists, vendor/pixel-style/config/audio.mk)
 # Pixel vibration patterns
 $(call inherit-product, vendor/pixel-style/config/vibration.mk)
 
+# Allow the TensorFlow Lite JNI library required by Google devices.
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/lib/libtensorflowlite_jni.so
+
 # PixelParts (Google devices only)
 ifneq ($(filter Google google,$(PRODUCT_MANUFACTURER)),)
 $(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
